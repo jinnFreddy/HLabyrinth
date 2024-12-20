@@ -98,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         {
             staminaBar.color = Color.cyan;
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             if (isHurt) isHurt = false;
             else if (!isHurt) isHurt = true;
