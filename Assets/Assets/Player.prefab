@@ -169,7 +169,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6805525005403382397}
   m_Father: {fileID: 8771252474096167117}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5837956204395446147
@@ -489,6 +490,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashlight: {fileID: 7002802270489149085}
+--- !u!1 &6467771543492401050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6805525005403382397}
+  m_Layer: 0
+  m_Name: InteractableArea
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6805525005403382397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6467771543492401050}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.0480003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8911318248504116369}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7002802270489149085
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +654,7 @@ GameObject:
   - component: {fileID: 2096542145864047660}
   - component: {fileID: 8082931741112273823}
   - component: {fileID: 4193943414320801734}
+  - component: {fileID: 4575528152393236033}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -727,6 +760,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chalkDecalPrefab: {fileID: 7849805015840590587, guid: 503f5d6b8ea5c0d468d8eeec37874029, type: 3}
   minDistanceBetweenDecals: 0.01
+--- !u!114 &4575528152393236033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172526920218018589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecebaee91a9f69d41b4e76c20730505f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionPoint: {fileID: 6805525005403382397}
+  _interactionBoxSize: {x: 1.5, y: 1.5, z: 1.5}
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 256
+  _numFound: 0
 --- !u!1 &8258221702956811633
 GameObject:
   m_ObjectHideFlags: 0

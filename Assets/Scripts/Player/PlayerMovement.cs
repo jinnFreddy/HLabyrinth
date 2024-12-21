@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform orientation;
 
     [Header("Movement")]
-    private float moveSpeed;
+    public float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
     public float groundDrag;
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpStaminaCost;
 
     [Header("Hurt Condition")]
-    public bool isHurt; 
+    public bool isSlowed; 
     public float hurtSpeedMultiplier;
 
     float horizontalInput;
@@ -73,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
         startYScale = transform.localScale.y;
         stamina = staminaMaximum;
         staminaBar.color = Color.cyan;
-        isHurt = false;
+        isSlowed = false;
     }
 
     private void Update()
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             stamina = Mathf.Min(stamina + staminaRegenRate * Time.deltaTime, staminaMaximum);
         }
         staminaBar.fillAmount = stamina / staminaMaximum;
-        if (isHurt)
+        if (isSlowed)
         {
             staminaBar.color = Color.red;
             stamina = staminaMaximum;
@@ -100,8 +100,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.H))
         {
-            if (isHurt) isHurt = false;
-            else if (!isHurt) isHurt = true;
+            if (isSlowed) isSlowed = false;
+            else if (!isSlowed) isSlowed = true;
         }
 
         if (grounded) rb.linearDamping = groundDrag;
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKey(jumpKey) && readyToJump && grounded && state != MovementState.crouching && stamina >= jumpStaminaCost && !isHurt)
+        if (Input.GetKey(jumpKey) && readyToJump && grounded && state != MovementState.crouching && stamina >= jumpStaminaCost && !isSlowed)
         {
             readyToJump = false;
             Jump();
@@ -141,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
     private void StateHandler()
     {
         // Hurt
-        if (isHurt)
+        if (isSlowed)
         {
             if (Input.GetKey(crouchKey))
             {
@@ -260,6 +260,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void HurtPlayer()
     {
-        isHurt = true;
+        isSlowed = true;
     }
 }

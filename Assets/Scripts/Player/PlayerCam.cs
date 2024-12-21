@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
-    public float sensX;
-    public float sensY;
+    [SerializeField] private Transform orientation;
+    [SerializeField] private float sensX;
+    [SerializeField] private float sensY;
 
-    public Transform orientation;
+    public bool isMovingObjects = false;
 
-    float xRotation;
-    float yRotation;
+    private float xRotation;
+    private float yRotation;
 
     void Start()
     {
@@ -18,9 +19,12 @@ public class PlayerCam : MonoBehaviour
 
     void Update()
     {
+        float currentSensX = isMovingObjects ? sensX / 2 : sensX;
+        float currentSensY = isMovingObjects ? sensY / 2 : sensY;
+
         //mouse input
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * currentSensX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * currentSensY;
 
         yRotation += mouseX;
         xRotation -= mouseY;
