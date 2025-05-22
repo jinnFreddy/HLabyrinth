@@ -1412,6 +1412,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1910604543039193355, guid: ba17faa9c79d4ad41b39a4578d455b4b, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 257
+      objectReference: {fileID: 0}
     - target: {fileID: 3433311361129234132, guid: ba17faa9c79d4ad41b39a4578d455b4b, type: 3}
       propertyPath: m_UseGravity
       value: 0

@@ -1,5 +1,130 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &75391079739874515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4151795549153090576}
+  - component: {fileID: 6357805781167173436}
+  - component: {fileID: 689628306645868980}
+  - component: {fileID: 514511638160272204}
+  - component: {fileID: 855996548183128119}
+  m_Layer: 0
+  m_Name: Chalk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4151795549153090576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75391079739874515}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.60024244, y: -0.07930949, z: 0.05998509, w: 0.79361254}
+  m_LocalPosition: {x: 0.562, y: -0.4, z: 1.011}
+  m_LocalScale: {x: 0.08, y: 0.2, z: 0.08}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5311689624216043708}
+  m_LocalEulerAnglesHint: {x: 74.203, y: -11.414, z: 0}
+--- !u!33 &6357805781167173436
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75391079739874515}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &689628306645868980
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75391079739874515}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &514511638160272204
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75391079739874515}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &855996548183128119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75391079739874515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdce275b376dc2d4298912ecde16de5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chalkDecalPrefab: {fileID: 7849805015840590587, guid: 503f5d6b8ea5c0d468d8eeec37874029, type: 3}
+  minDistanceBetweenDecals: 0.01
 --- !u!1 &624957922001969042
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +489,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4151795549153090576}
   - {fileID: 5435654695653533060}
   m_Father: {fileID: 3737889737279047633}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -474,9 +600,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9268b9d502b5d44d9d53fc2b0bea659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orientation: {fileID: 8911318248504116369}
   sensX: 400
   sensY: 400
-  orientation: {fileID: 8911318248504116369}
+  isMovingObjects: 0
 --- !u!114 &7024241634751888203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,8 +780,8 @@ GameObject:
   - component: {fileID: 8771252474096167117}
   - component: {fileID: 2096542145864047660}
   - component: {fileID: 8082931741112273823}
-  - component: {fileID: 4193943414320801734}
   - component: {fileID: 4575528152393236033}
+  - component: {fileID: 2097930027455086423}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -722,6 +849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   orientation: {fileID: 8911318248504116369}
+  moveSpeed: 0
   walkSpeed: 4
   sprintSpeed: 15
   groundDrag: 5
@@ -744,22 +872,8 @@ MonoBehaviour:
   staminaRegenRate: 5
   sprintStaminaCost: 10
   jumpStaminaCost: 20
-  isHurt: 0
+  isSlowed: 0
   hurtSpeedMultiplier: 0.5
---- !u!114 &4193943414320801734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7172526920218018589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdce275b376dc2d4298912ecde16de5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chalkDecalPrefab: {fileID: 7849805015840590587, guid: 503f5d6b8ea5c0d468d8eeec37874029, type: 3}
-  minDistanceBetweenDecals: 0.01
 --- !u!114 &4575528152393236033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,6 +892,31 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _numFound: 0
+--- !u!114 &2097930027455086423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172526920218018589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5fdc69f3a9ec2642b9a79deb8f20247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadoutSlots:
+  - itemName: Flashlight
+    itemPrefab: {fileID: 4621963745825701694}
+    keyCode: 49
+  - itemName: Chalk
+    itemPrefab: {fileID: 75391079739874515}
+    keyCode: 50
+  - itemName: 
+    itemPrefab: {fileID: 0}
+    keyCode: 0
+  - itemName: 
+    itemPrefab: {fileID: 0}
+    keyCode: 0
 --- !u!1 &8258221702956811633
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,6 +1035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flashlight
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -907,6 +1050,11 @@ PrefabInstance:
       addedObject: {fileID: 644534100033049967}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
+--- !u!1 &4621963745825701694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
+  m_PrefabInstance: {fileID: 5541092580338532975}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5435654695653533060 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
