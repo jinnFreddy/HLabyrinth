@@ -27,8 +27,6 @@ public class ChalkDrawing : MonoBehaviour
     //}
 
     public GameObject chalkDecalPrefab;  // Prefab do Decal de giz
-    public float minDistanceBetweenDecals;  // Distância mínima entre decals
-    public float maxDecals;
 
     void Update()
     {
