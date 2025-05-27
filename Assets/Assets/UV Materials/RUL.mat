@@ -114,6 +114,8 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _IsActive: 0
+    - _IsUVActive: 0
     - _LightAngle: 30
     - _Metallic: 0
     - _Mode: 0
@@ -138,8 +140,8 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 1, b: 0.83348227, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightDirection: {r: -0.052438784, g: 0.23742189, b: 0.9699902, a: 0}
-    - _LightPosition: {r: -27.72083, g: 2.0020607, b: -13.709437, a: 0}
+    - _LightDirection: {r: 0.66081125, g: 0.12794673, b: 0.73956615, a: 0}
+    - _LightPosition: {r: -22.683514, g: 0.71060944, b: -1.1387038, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

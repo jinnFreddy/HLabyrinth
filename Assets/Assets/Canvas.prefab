@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 8292181320840019239}
   - component: {fileID: 2348222749749786361}
   m_Layer: 5
-  m_Name: Bar
+  m_Name: Stamina Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,6 +11,7 @@ Shader "Custom/UVReveal"
         _LightPosition("Light Position", Vector) = (0,0,0,0)
         _LightAngle("Light Angle", Range(0,180)) = 90
         _StrengthScalar("Strength", Float) = 5
+        _IsUVActive("Is UV Flashlight Active", float) = 0
     }
     SubShader
     {
@@ -52,6 +53,7 @@ Shader "Custom/UVReveal"
             //float _Smoothness;
             //float _Metallic;
 
+            float _IsUVActive;
             float _LightAngle;
             float _StrengthScalar;
             float4 _LightPosition;
@@ -82,11 +84,11 @@ Shader "Custom/UVReveal"
                 float cosAngle = cos(radians(max(_LightAngle * 0.5, 0.1)));
                 float inSpotlight = smoothstep(cosAngle - 0.05, 1.0, spotDot); 
 
-                // float distance = length(lightDir);
-                // float atten = smoothstep(10, 0, distance); // 10m max range
+                float distance = length(lightDir);
+                float atten = smoothstep(10, 0, distance); // 10m max range
 
                 // strength 
-                float strength = inSpotlight /* * atten */ * _StrengthScalar;
+                float strength = inSpotlight * atten * _StrengthScalar;
                 strength = saturate(strength);
 
                 // Final Output
@@ -96,7 +98,7 @@ Shader "Custom/UVReveal"
 
 
 
-                return half4(albedo, strength);
+                return half4(albedo, strength * _IsUVActive);
             }
             ENDHLSL
         }

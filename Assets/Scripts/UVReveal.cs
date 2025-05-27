@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[ExecuteAlways]
 public class UVReveal : MonoBehaviour
 {
     [SerializeField] Material _mat;
@@ -21,16 +20,16 @@ public class UVReveal : MonoBehaviour
 
     private void Update()
     {
-        if (_FlaslightUV.gameObject.activeSelf)
+        if (_FlaslightUV != null && _mat && _light)
         {
-            if (_mat && _light)
-            {
-                Vector3 lightForward = _light.transform.forward.normalized;
+            bool isActive = _FlaslightUV.gameObject.activeSelf && _light.gameObject.activeSelf;
 
-                _mat.SetVector("_LightPosition", _light.transform.position);
-                _mat.SetVector("_LightDirection", new Vector4(lightForward.x, lightForward.y, lightForward.z, 0));
-                _mat.SetFloat("_LightAngle", _light.spotAngle);
-            }
+            Vector3 lightForward = _light.transform.forward.normalized;
+            _mat.SetVector("_LightPosition", _light.transform.position);
+            _mat.SetVector("_LightDirection", new Vector4(lightForward.x, lightForward.y, lightForward.z, 0));
+            _mat.SetFloat("_LightAngle", _light.spotAngle);
+            _mat.SetFloat("_IsActive", isActive ? 1 : 0);
+
         }
     }
 }
