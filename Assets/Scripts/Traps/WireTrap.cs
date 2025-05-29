@@ -1,0 +1,15 @@
+using UnityEngine;
+
+public class WireTrap : MonoBehaviour
+{
+
+    [SerializeField] private Transform _TrapMechanism;
+    [SerializeField] public bool _isDisabled = false;
+
+    public void Disable()
+    {
+        _isDisabled = true;
+        this.gameObject.SetActive(false);
+        Debug.Log("Wire trap disabled");
+    }
+}
