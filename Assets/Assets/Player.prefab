@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 1865053386586035393}
   - component: {fileID: 1729516856190710839}
   - component: {fileID: 6856358466519762187}
-  - component: {fileID: 8822517032402919049}
   m_Layer: 6
   m_Name: PlayerObj
   m_TagString: Untagged
@@ -211,29 +210,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8822517032402919049
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624957922001969042}
-  m_Material: {fileID: 13400000, guid: fd0066b0236f34a42afbb3c73a46de01, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1878756967263486272
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,10 +863,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8771252474096167117}
   - component: {fileID: 2096542145864047660}
+  - component: {fileID: 2040496612920230847}
   - component: {fileID: 8082931741112273823}
   - component: {fileID: 4575528152393236033}
   - component: {fileID: 2097930027455086423}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -943,6 +920,29 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!136 &2040496612920230847
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172526920218018589}
+  m_Material: {fileID: 13400000, guid: fd0066b0236f34a42afbb3c73a46de01, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8082931741112273823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,6 +982,7 @@ MonoBehaviour:
   jumpStaminaCost: 20
   isSlowed: 0
   hurtSpeedMultiplier: 0.5
+  hurtDuration: 2
 --- !u!114 &4575528152393236033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -998,7 +999,7 @@ MonoBehaviour:
   _interactionBoxSize: {x: 1.5, y: 1.5, z: 1.5}
   _interactableMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1024
   _numFound: 0
 --- !u!114 &2097930027455086423
 MonoBehaviour:
@@ -1025,6 +1026,7 @@ MonoBehaviour:
   - itemName: Wirecutter
     itemPrefab: {fileID: 9080234452088159451}
     keyCode: 52
+  currentSlotIndex: -1
 --- !u!1 &8258221702956811633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,4 +1424,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbcbf7fdabc5914292a3ade2fa76d8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _progress: {fileID: 0}
+  _maxDistance: 5
+  _progressBar: {fileID: 0}
+  _disableTime: 5
+  _trapMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  _loadout: {fileID: 2097930027455086423}

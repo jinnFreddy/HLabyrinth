@@ -12,4 +12,17 @@ public class WireTrap : MonoBehaviour
         this.gameObject.SetActive(false);
         Debug.Log("Wire trap disabled");
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log($"[TRIGGER] Entered by: {other.name}");
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
+            player.HurtPlayer();
+            this.gameObject.SetActive(false);
+            Debug.Log("Wire trap triggered");
+            
+        }
+    }
 }

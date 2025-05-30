@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Hurt Condition")]
     public bool isSlowed; 
     public float hurtSpeedMultiplier;
+    public float hurtDuration;
 
     float horizontalInput;
     float verticalInput;
@@ -260,6 +263,26 @@ public class PlayerMovement : MonoBehaviour
 
     public void HurtPlayer()
     {
-        isSlowed = true;
+        if (isSlowed)
+        {
+            KillPlayer();
+        }
+        else
+        {
+            isSlowed = true;
+            StartCoroutine(Recover());
+        }
+        
+    }
+
+    IEnumerator Recover()
+    {
+        yield return new WaitForSeconds(hurtDuration);
+        isSlowed = false;
+    }
+
+    private void KillPlayer()
+    {
+        Debug.Log("Player died");
     }
 }
