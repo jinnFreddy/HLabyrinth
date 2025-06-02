@@ -17,7 +17,6 @@ public class WireTrap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log($"[TRIGGER] Entered by: {other.name}");
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             player.HurtPlayer();
             this.gameObject.SetActive(false);

@@ -445,6 +445,9 @@ MonoBehaviour:
   _defaultLength: 20
   _numOfReflections: 4
   _light: {fileID: 7002802270489149085}
+  baseWidth: 0
+  maxLineWidth: 0
+  pulseSpeed: 0
 --- !u!120 &2692856867586550052
 LineRenderer:
   serializedVersion: 2
@@ -584,8 +587,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4151795549153090576}
   - {fileID: 5435654695653533060}
+  - {fileID: 4151795549153090576}
   - {fileID: 2193772960698653657}
   - {fileID: 8451191122126579297}
   m_Father: {fileID: 3737889737279047633}
@@ -996,7 +999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interactionPoint: {fileID: 6805525005403382397}
-  _interactionBoxSize: {x: 1.5, y: 1.5, z: 1.5}
+  _interactionBoxSize: {x: 2.85, y: 1.5, z: 1.54}
   _interactableMask:
     serializedVersion: 2
     m_Bits: 1024

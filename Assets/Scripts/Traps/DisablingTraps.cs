@@ -12,7 +12,6 @@ public class DisablingTraps : MonoBehaviour
 
     private WireTrap _currentTrap = null;
     private float _progress = 0f;
-    private bool _isDisabling = false;
 
     // Update is called once per frame
     void Update()
@@ -46,7 +45,6 @@ public class DisablingTraps : MonoBehaviour
         if (_currentTrap == null || !HasWirecutterEquipped() || !Input.GetKey(KeyCode.E))
         {
             _progress = 0f;
-            _isDisabling = false;
             if (_progressBar) _progressBar.fillAmount = 0f;
             return;
         }
@@ -70,12 +68,10 @@ public class DisablingTraps : MonoBehaviour
         {
             _currentTrap.Disable();
             _progress = 0f;
-            _isDisabling = false;
             if (_progressBar) _progressBar.fillAmount = 0f;
         }
         else
         {
-            _isDisabling = true;
             if (_progressBar) _progressBar.fillAmount = _progress;
         }
     }
