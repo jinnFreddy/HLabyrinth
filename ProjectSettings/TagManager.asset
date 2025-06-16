@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Obstacle
+  - CrystalCluster
+  - Shadow
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - UV
   - Interactable
   - Wiretrap
-  - 
-  - 
+  - CrystalCluster
+  - Shadow
   - 
   - 
   - 
