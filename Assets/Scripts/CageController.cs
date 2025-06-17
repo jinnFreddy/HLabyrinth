@@ -10,10 +10,12 @@ public class CageController : MonoBehaviour
     [SerializeField] private float wallCloseDuration = 2f;
     [SerializeField] private Transform centerPoint;
     [SerializeField] private float detectionRadius = 2f;
+    [SerializeField] private float _risingUnits;
 
     [Header("Runtime References")]
     [SerializeField] private LayerMask shadowLayerMask;
     [SerializeField] private LayerMask playerLayerMask;
+    [SerializeField] private GameObject brazierFlame;
 
     private bool hasShadowInside = false;
     private bool playerIsInside = false;
@@ -46,12 +48,14 @@ public class CageController : MonoBehaviour
         {
             Debug.Log("Player left cage");
             playerIsInside = false;
-        }
 
-        if (IsShadow(other))
-        {
-            Debug.LogWarning("Shadow left cage – not trapping");
-            hasShadowInside = false;
+            if (hasShadowInside)
+            {
+                Debug.Log("[Cage] Closing – shadow trapped");
+
+                BrazierManager.Instance.OnShadowTrapped();
+                this.enabled = false; 
+            }
         }
     }
 
@@ -104,22 +108,23 @@ public class CageController : MonoBehaviour
     private IEnumerator CloseCage()
     {
         cageClosed = true;
+        brazierFlame.SetActive(true);
 
         // Optional: animate walls closing over time
         if (wallTransform != null)
         {
-            Quaternion startRotation = wallTransform.rotation;
-            Quaternion targetRotation = wallTransform.rotation * Quaternion.Euler(90, 0, 0); // Example rotation
+            Vector3 startPos = wallTransform.position;
+            Vector3 targetPos = new Vector3(startPos.x, startPos.y + _risingUnits, startPos.z);
 
             float elapsed = 0f;
             while (elapsed < wallCloseDuration)
             {
-                wallTransform.localRotation = Quaternion.Slerp(startRotation, targetRotation, elapsed / wallCloseDuration);
+                wallTransform.position = Vector3.Lerp(startPos, targetPos, elapsed / wallCloseDuration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            wallTransform.localRotation = targetRotation;
+            wallTransform.position = targetPos;
         }
 
         // Final cage locked state
