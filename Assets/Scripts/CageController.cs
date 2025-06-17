@@ -10,12 +10,10 @@ public class CageController : MonoBehaviour
     [SerializeField] private float wallCloseDuration = 2f;
     [SerializeField] private Transform centerPoint;
     [SerializeField] private float detectionRadius = 2f;
-    [SerializeField] private float _risingUnits;
 
     [Header("Runtime References")]
     [SerializeField] private LayerMask shadowLayerMask;
     [SerializeField] private LayerMask playerLayerMask;
-    [SerializeField] private GameObject brazierFlame;
 
     private bool hasShadowInside = false;
     private bool playerIsInside = false;
@@ -106,23 +104,22 @@ public class CageController : MonoBehaviour
     private IEnumerator CloseCage()
     {
         cageClosed = true;
-        brazierFlame.SetActive(true);
 
         // Optional: animate walls closing over time
         if (wallTransform != null)
         {
-            Vector3 startPos = wallTransform.position;
-            Vector3 targetPos = new Vector3(startPos.x, startPos.y + _risingUnits, startPos.z);
+            Quaternion startRotation = wallTransform.rotation;
+            Quaternion targetRotation = wallTransform.rotation * Quaternion.Euler(90, 0, 0); // Example rotation
 
             float elapsed = 0f;
             while (elapsed < wallCloseDuration)
             {
-                wallTransform.position = Vector3.Lerp(startPos, targetPos, elapsed / wallCloseDuration);
+                wallTransform.localRotation = Quaternion.Slerp(startRotation, targetRotation, elapsed / wallCloseDuration);
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
-            wallTransform.position = targetPos;
+            wallTransform.localRotation = targetRotation;
         }
 
         // Final cage locked state
