@@ -1,38 +1,45 @@
+using System.Collections;
 using UnityEngine;
 
 public class Debris : MonoBehaviour
 {
     private Rigidbody rb;
-    private Vector3 originalPosition;
-    private float delay;
+    private bool hasFallen = false;
+
+    [SerializeField] private float initialForceMagnitude = 5f;
+    [SerializeField] private float initialTorqueMagnitude = 2f;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        originalPosition = transform.localPosition;
         rb.isKinematic = true;
-        rb.useGravity = false;
     }
 
     public void ActivatePiece(float delay)
     {
-        if (rb == null) return;
+        if (rb == null || hasFallen) return;
+
+        Vector3 randomForce = new Vector3(
+            Random.Range(-1f, 1f),
+            Random.Range(0f, .2f),
+            Random.Range(-1f, 1f)
+        );
+
+        StartCoroutine(ActivateWithDelay(delay));
+    }
+
+    private IEnumerator ActivateWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
         rb.isKinematic = false;
         rb.useGravity = true;
 
-        Vector3 randomForce = new Vector3(
-            Random.Range(-1f, 1f),
-            Random.Range(0.5f, 1f),
-            Random.Range(-1f, 1f)
-        );
+        // Apply initial push + spin
+        Vector3 randomDirection = Random.insideUnitSphere.normalized;
+        rb.AddForce(randomDirection * initialForceMagnitude, ForceMode.Impulse);
+        rb.AddTorque(Random.insideUnitSphere * initialTorqueMagnitude, ForceMode.Impulse);
 
-        Invoke(nameof(ApplyRandomForce), delay);
-    }
-
-    private void ApplyRandomForce()
-    {
-        rb.AddForce(rb.transform.up * Random.Range(2f, 5f), ForceMode.Impulse);
-        rb.AddTorque(Random.insideUnitSphere * 5f, ForceMode.Impulse);
+        hasFallen = true;
     }
 }
