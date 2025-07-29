@@ -3,6 +3,7 @@ using Pathfinding;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 #nullable enable
 public class StatueAI : MonoBehaviour
@@ -10,14 +11,19 @@ public class StatueAI : MonoBehaviour
     [SerializeField] private BoxCollider boxCollider;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private float speed;
-    private AIPath aiPath;
-    private AIDestinationSetter aiDestinationSetter;
+
+    //private AIPath aiPath;
+    //private AIDestinationSetter aiDestinationSetter;
+    private NavMeshAgent agent;
     private GameObject? currentTarget;
 
     private void Awake()
     {
-        aiPath = FindFirstObjectByType<AIPath>();
-        aiDestinationSetter = FindFirstObjectByType<AIDestinationSetter>();
+        //aiPath = FindFirstObjectByType<AIPath>();
+        //aiDestinationSetter = FindFirstObjectByType<AIDestinationSetter>();
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
+        agent.isStopped = true;
     }
 
     private void Update()
@@ -50,14 +56,19 @@ public class StatueAI : MonoBehaviour
     private void SetCurrentTarget(GameObject? target)
     {
         currentTarget = target;
+
         if (target != null)
         {
-            aiDestinationSetter.target = target.transform;
-            aiPath.canMove = true;
+            //aiDestinationSetter.target = target.transform;
+            //aiPath.canMove = true;
+            agent.isStopped = false;
+            agent.SetDestination(target.transform.position);
         } else
         {
-            aiDestinationSetter.target = null;
-            aiPath.canMove = false;
+            //aiDestinationSetter.target = null;
+            //aiPath.canMove = false;
+            agent.isStopped = true;
+            agent.ResetPath();
         }
     }
     private bool IsAnyoneLookingAtMe()

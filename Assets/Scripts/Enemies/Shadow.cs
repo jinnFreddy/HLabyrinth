@@ -1,16 +1,19 @@
 using UnityEngine;
 
-[RequireComponent (typeof(ShadowPathController))]
+//[RequireComponent (typeof(ShadowPathController))]
+[RequireComponent(typeof(ShadowPathControllerNM))]
 [RequireComponent (typeof(PlayerDetector))]
 public class Shadow : MonoBehaviour
 {
     public ShadowFSM shadowFSM;
-    public ShadowPathController pathController;
+    public ShadowPathControllerNM pathController;
+    //public ShadowPathController pathController;
     public PlayerDetector playerDetector;
 
     private void Awake()
     {
-        pathController = GetComponent<ShadowPathController>();
+        pathController = GetComponent<ShadowPathControllerNM>();
+        //pathController = GetComponent<ShadowPathController>();
         playerDetector = GetComponent<PlayerDetector>();
         
     }
