@@ -1,26 +1,23 @@
-using NUnit.Framework;
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BreakApart : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private GameObject intactPillar;
-    [SerializeField] private GameObject brokenPillarPrefab;
+    [SerializeField] public GameObject intactPillar;
+    [SerializeField] public GameObject brokenPillarPrefab;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float minPieceDelay;
     [SerializeField] private float maxPieceDelay;
     [SerializeField] private float warningTime;
     [SerializeField] private float trembleIntensity;
     [SerializeField] private float trembleSpeed;
-    [SerializeField] private BoxCollider _boxCollider; 
+    [SerializeField] private Collider _collider; 
 
-    private bool hasBroken = false;
+    public bool hasBroken = false;
     private bool isWarning = false;
     private bool isImpactProcessed = false;
+    private GameObject spawnedBrokenGO;
 
     private void Awake()
     {
@@ -69,13 +66,13 @@ public class BreakApart : MonoBehaviour
     private void Break()
     {
         intactPillar.SetActive(false);
-        _boxCollider.isTrigger = true;
+        _collider.isTrigger = true;
+
 
         if (brokenPillarPrefab != null && spawnPoint != null)
         {
-            GameObject brokenGO = Instantiate(brokenPillarPrefab, spawnPoint.position, spawnPoint.rotation);
-            brokenGO.SetActive(true);
-            Debris[] debrisPieces = brokenGO.GetComponentsInChildren<Debris>();
+            spawnedBrokenGO = Instantiate(brokenPillarPrefab, spawnPoint.position, spawnPoint.rotation);
+            Debris[] debrisPieces = spawnedBrokenGO.GetComponentsInChildren<Debris>();
 
             foreach (var piece in debrisPieces)
             {
@@ -86,5 +83,20 @@ public class BreakApart : MonoBehaviour
 
         isWarning = false;
         isImpactProcessed = false;
+    }
+
+    public void ResetStructure()
+    {
+        if (spawnedBrokenGO != null)
+        {
+            Destroy(spawnedBrokenGO);
+            spawnedBrokenGO = null;
+        }
+
+        intactPillar.SetActive(true);
+        hasBroken = false;
+        isWarning = false;
+        isImpactProcessed = false;
+        _collider.isTrigger = false;
     }
 }

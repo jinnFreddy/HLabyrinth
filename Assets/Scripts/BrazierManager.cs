@@ -1,16 +1,21 @@
+using System.Collections;
 using System.Threading;
 using UnityEngine;
 
 public class BrazierManager : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] private Brazier[] braziers;
+    [SerializeField] private float _NumberOfBraziers;
     // [SerializeField] private AudioClip brazierLitSound;
     [SerializeField] private float finalWinDelay;
+    [SerializeField] private Transform wallTransform;
+    [SerializeField] private float _risingUnits;
+    [SerializeField] private float wallCloseDuration;
 
     [Header("Runtime")]
     private int trappedShadows = 0;
     private bool allBraziersLit = false;
+    private bool isCageOpening = false;
 
     public static BrazierManager Instance { get; private set; }
 
@@ -28,14 +33,14 @@ public class BrazierManager : MonoBehaviour
 
     public void OnShadowTrapped()
     {
-        if (allBraziersLit || trappedShadows >= braziers.Length)
+        if (allBraziersLit || trappedShadows >= _NumberOfBraziers)
         {
             return;
         }
 
-        Debug.Log($"[BrazierManager] Shadow trapped – lighting brazier #{trappedShadows + 1}");
+        Debug.Log($"[BrazierManager] Shadow trapped – {trappedShadows + 1}");
 
-        braziers[trappedShadows].LightUp();
+        //braziers[trappedShadows].LightUp();
         trappedShadows++;
 
         //if (brazierLitSound != null)
@@ -43,7 +48,7 @@ public class BrazierManager : MonoBehaviour
         //    AudioSource.PlayClipAtPoint(brazierLitSound, transform.position);
         //}
 
-        if (trappedShadows >= braziers.Length)
+        if (trappedShadows >= _NumberOfBraziers)
         {
             allBraziersLit = true;
             Debug.Log("[BrazierManager] All braziers lit!");
@@ -54,8 +59,35 @@ public class BrazierManager : MonoBehaviour
     private void OnAllBraziersLit()
     {
         // Trigger cutscene, open door, activate final clue, etc.
-        Debug.Log("[BrazierManager] Puzzle complete!");
-
+        if (!isCageOpening && wallTransform != null)
+        {
+            isCageOpening = true;
+            StartCoroutine(OpenCage());
+            Debug.Log("[BrazierManager] Puzzle complete!");
+        }
         // Optional: Play final sound or VFX
+    }
+
+    private IEnumerator OpenCage()
+    {
+        if (wallTransform != null)
+        {
+            Vector3 startPos = wallTransform.position;
+            Vector3 targetPos = new Vector3(startPos.x, startPos.y - _risingUnits, startPos.z);
+
+            float elapsed = 0f;
+            while (elapsed < wallCloseDuration)
+            {
+                wallTransform.position = Vector3.Lerp(startPos, targetPos, elapsed / wallCloseDuration);
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+            wallTransform.position = targetPos;
+        }
+
+        // Final cage locked state
+        Debug.Log("Final Cage Opened");
+
+        // Optional: play sound, lock door, show UI feedback
     }
 }

@@ -6,20 +6,21 @@ public class CageController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float checkInterval = 0.1f;
     [SerializeField] private float closeDelay = 1f;
-    [SerializeField] private Transform wallTransform; // Optional: wall to animate closed
+    [SerializeField] private Transform[] wallTransform;
     [SerializeField] private float wallCloseDuration = 2f;
     [SerializeField] private Transform centerPoint;
-    [SerializeField] private float detectionRadius = 2f;
+    [SerializeField] private Vector3 detectionBox;
     [SerializeField] private float _risingUnits;
+    [SerializeField] private Brazier brazier;
 
     [Header("Runtime References")]
     [SerializeField] private LayerMask shadowLayerMask;
     [SerializeField] private LayerMask playerLayerMask;
-    [SerializeField] private GameObject brazierFlame;
 
     private bool hasShadowInside = false;
     private bool playerIsInside = false;
     private bool cageClosed = false;
+    private bool isProcessingTrap = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,12 +35,6 @@ public class CageController : MonoBehaviour
             Debug.Log("Player entered cage");
             playerIsInside = true;
         }
-
-        if (IsShadow(other))
-        {
-            Debug.Log("Shadow entered cage");
-            hasShadowInside = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -49,12 +44,14 @@ public class CageController : MonoBehaviour
             Debug.Log("Player left cage");
             playerIsInside = false;
 
-            if (hasShadowInside)
+            CheckForShadows();
+
+            if (hasShadowInside && !isProcessingTrap)
             {
                 Debug.Log("[Cage] Closing – shadow trapped");
-
-                BrazierManager.Instance.OnShadowTrapped();
-                this.enabled = false; 
+                StartCoroutine(TriggerTrapSequence());
+                // BrazierManager.Instance.OnShadowTrapped();
+                // this.enabled = false; 
             }
         }
     }
@@ -65,31 +62,28 @@ public class CageController : MonoBehaviour
                other.CompareTag("Player");
     }
 
-    private bool IsShadow(Collider other)
-    {
-        return (shadowLayerMask & (1 << other.gameObject.layer)) != 0 ||
-               other.CompareTag("Shadow");
-    }
+    //private bool IsShadow(Collider other)
+    //{
+    //    return (shadowLayerMask & (1 << other.gameObject.layer)) != 0 ||
+    //           other.CompareTag("Shadow");
+    //}
 
     private void CheckCageStatus()
     {
-        if (cageClosed) return;
+        if (cageClosed || isProcessingTrap) return;
 
-        // Only trigger closing logic if:
-        // - Player left the cage
-        // - Shadow is still inside
         CheckForShadows();
 
         if (!playerIsInside && hasShadowInside)
         {
             Debug.Log("Closing cage – player escaped, shadow trapped!");
-            StartCoroutine(CloseCage());
+            StartCoroutine(TriggerTrapSequence());
         }
     }
 
     private void CheckForShadows()
     {
-        Collider[] nearby = Physics.OverlapSphere(centerPoint.position, detectionRadius, shadowLayerMask);
+        Collider[] nearby = Physics.OverlapBox(centerPoint.position, detectionBox * 0.5f, Quaternion.identity, shadowLayerMask);
 
         if (nearby.Length > 0)
         {
@@ -105,31 +99,66 @@ public class CageController : MonoBehaviour
         }
     }
 
-    private IEnumerator CloseCage()
+    private IEnumerator TriggerTrapSequence()
     {
-        cageClosed = true;
-        brazierFlame.SetActive(true);
+        isProcessingTrap = true;
+        yield return null;
 
-        // Optional: animate walls closing over time
-        if (wallTransform != null)
+        CheckForShadows();
+        if (!hasShadowInside || playerIsInside)
         {
-            Vector3 startPos = wallTransform.position;
-            Vector3 targetPos = new Vector3(startPos.x, startPos.y + _risingUnits, startPos.z);
-
-            float elapsed = 0f;
-            while (elapsed < wallCloseDuration)
-            {
-                wallTransform.position = Vector3.Lerp(startPos, targetPos, elapsed / wallCloseDuration);
-                elapsed += Time.deltaTime;
-                yield return null;
-            }
-
-            wallTransform.position = targetPos;
+            Debug.LogWarning("[Cage] Trap canceled - shadow no longer inside or player re-entered");
+            isProcessingTrap = false;
+            yield break;
         }
 
+        BrazierManager.Instance.OnShadowTrapped();
+        yield return StartCoroutine(CloseCage());
+
+        cageClosed = true;
+        isProcessingTrap = false;
+        Debug.Log("Shadow Trapped!");
+    }
+
+    private IEnumerator CloseCage()
+    {
+        //cageClosed = true;
+        //brazierMix.SetActive(true);
+
+        // animate walls closing over time
+        foreach (Transform walls in wallTransform)
+        {
+            if (walls != null)
+            {
+                Vector3 startPos = walls.position;
+                Vector3 targetPos = new Vector3(startPos.x, startPos.y + _risingUnits, startPos.z);
+
+                float elapsed = 0f;
+                while (elapsed < wallCloseDuration)
+                {
+                    walls.position = Vector3.Lerp(startPos, targetPos, elapsed / wallCloseDuration);
+                    elapsed += Time.deltaTime;
+                    yield return null;
+                }
+
+                walls.position = targetPos;
+
+            }
+        }
+
+        brazier.LightUp();
         // Final cage locked state
         Debug.Log("Shadow Trapped!");
 
         // Optional: play sound, lock door, show UI feedback
+    }
+
+    private void OnDrawGizmos()
+    {
+        Color color = hasShadowInside ? Color.red : Color.yellow;
+
+        Gizmos.matrix = Matrix4x4.TRS(centerPoint.position, transform.rotation, Vector3.one);
+        Gizmos.color = color;
+        Gizmos.DrawWireCube(Vector3.zero, detectionBox);
     }
 }

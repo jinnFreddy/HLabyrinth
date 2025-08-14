@@ -111,7 +111,7 @@ Material:
     - _EmissionEnabled: 0
     - _EnvironmentReflections: 1
     - _FlipbookMode: 0
-    - _FogDensity: 0.2
+    - _FogDensity: 0.34
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -140,7 +140,7 @@ Material:
     - _Color: {r: 0.43137255, g: 0.4745098, b: 0.5294118, a: 1}
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FogColor: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+    - _FogColor: {r: 0.103773594, g: 0.08859915, b: 0.08859915, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0.38167942, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

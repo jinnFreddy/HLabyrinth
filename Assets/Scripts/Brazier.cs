@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class Brazier : MonoBehaviour
 {
-    [SerializeField] private GameObject flameGO; // Flame prefab or child object
-    private bool isLit = false;
+    [SerializeField] private GameObject[] flames; // Flame prefab or child object
 
     public void LightUp()
     {
-        if (!isLit && flameGO != null)
+        foreach (GameObject go in flames)
         {
-            flameGO.SetActive(true);
-            isLit = true;
+            if (flames != null)
+            {
+                go.SetActive(true);
+            }
         }
     }
 }

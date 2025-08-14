@@ -3,10 +3,10 @@ using UnityEngine;
 public class GrabObject : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject _player;
-    [SerializeField] private GameObject _mirrorHandle;
-    [SerializeField] private Transform _playerOrientation;
-    [SerializeField] private Transform _initialPosition;
-    [SerializeField] private PlayerCam _playerCam;
+    [SerializeField] private GameObject _mirrorHandle; //MIRROR GO
+    [SerializeField] private Transform _playerOrientation; //TO BE CHILD OF PLAYER'S ORIENTATION GO
+    [SerializeField] private Transform _initialPosition; // TO BE CHILD OF INITIAL ENVIRONMENT HIERARCHY
+    [SerializeField] private PlayerCam _playerCam; // FOR FIXING THE CAMERA, SO IT STOPS
 
     public void Interact(Interactable interactor)
     {

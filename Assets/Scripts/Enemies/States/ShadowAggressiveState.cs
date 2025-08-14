@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.AI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
-public class ShadowAggressiveState: ShadowFSMState
+public class ShadowAggressiveState : ShadowFSMState
 {
     private readonly float moveSpeed = 6f;
     private readonly int radius = 20;
     private Transform currentTarget;
+    private NavMeshAgent agent;
+    private bool isHandlingEvent = false;
 
     public ShadowAggressiveState(Shadow shadow) : base(shadow)
     {
@@ -14,43 +18,72 @@ public class ShadowAggressiveState: ShadowFSMState
     public override void Enter()
     {
         base.Enter();
-        _shadow.pathController.EnableRotation(true);
-        _shadow.pathController.SetMoveSpeed(moveSpeed);
-        _shadow.pathController.OnTargetReachedEvent += OnTargetReached;
+        agent = _shadow.GetComponent<NavMeshAgent>();
+
+        agent.isStopped = false;
+        agent.speed = moveSpeed;
+        agent.updateRotation = true;
+        agent.stoppingDistance = 0.2f; 
 
         GameObject player = _shadow.playerDetector.GetPlayerWithinRadius(radius);
         if (player != null)
         {
             currentTarget = player.transform;
-        } else {
+        }
+        else
+        {
             _shadow.shadowFSM.SetCurrentState(ShadowFSMStateType.SHY);
+            return;
         }
 
+        NavMeshAreaManager.Instance.EnterAggressiveState(agent, currentTarget.position);
+        _shadow.pathController.OnTargetReachedEvent += SafeOnTargetReached;
     }
 
     public override void Update()
     {
         base.Update();
-
-        if (_shadow.playerDetector.GetPlayerWithinRadius(radius) == null)
+        GameObject player = _shadow.playerDetector.GetPlayerWithinRadius(radius);
+        if (player == null)
         {
             _shadow.shadowFSM.SetCurrentState(ShadowFSMStateType.SHY);
+            return;
+        }
+
+        currentTarget = player.transform;
+        if (!isHandlingEvent && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 1f)
+        {
+            NavMeshAreaManager.Instance.ForcePathRecalculation(agent, currentTarget.position);
         }
     }
 
     public override void Exit()
     {
         base.Exit();
-        _shadow.pathController.OnTargetReachedEvent -= OnTargetReached;
+
+        agent = _shadow.GetComponent<NavMeshAgent>();
+        Vector3 currentDestination = agent.hasPath ? agent.destination : Vector3.zero;
+
+        NavMeshAreaManager.Instance.ExitAggressiveState(agent, currentDestination);
+        _shadow.pathController.OnTargetReachedEvent -= SafeOnTargetReached;
         currentTarget = null;
     }
 
-    private void OnTargetReached()
+    private void SafeOnTargetReached()
     {
-        if (currentTarget != null)
+        isHandlingEvent = true;
+
+        try
         {
-            _shadow.pathController.SetDestination(currentTarget.transform.position);
+            Debug.Log("Aggressive state: Target reached (non-pathing)");
+
+            // Play sound
+            // AudioSource.PlayClipAtPoint(attackSound, transform.position);
         }
+        finally
+        {
+            isHandlingEvent = false;
+        }
+
     }
-    
 }
