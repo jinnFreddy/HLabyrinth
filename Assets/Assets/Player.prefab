@@ -420,12 +420,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5837956204395446147}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: -0.07, z: 2.55}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.039996654, y: -0.07999686, z: 1.8599825}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5435654695653533060}
+  m_Father: {fileID: 6265326365113703437}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3123349584599569449
 MonoBehaviour:
@@ -439,15 +439,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1a59bf7e3b8de8459109a8282c2657e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _layerMask:
+  _reflectiveSurfaces:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
+  _lightSource:
+    serializedVersion: 2
+    m_Bits: 0
   _defaultLength: 20
   _numOfReflections: 4
-  _light: {fileID: 7002802270489149085}
-  baseWidth: 0
-  maxLineWidth: 0
-  pulseSpeed: 0
 --- !u!120 &2692856867586550052
 LineRenderer:
   serializedVersion: 2
@@ -765,7 +764,8 @@ Transform:
   m_LocalPosition: {x: 0.03, y: 0.01, z: 0.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 644534100033049967}
   m_Father: {fileID: 5435654695653533060}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!108 &6654372609209868449
@@ -1286,9 +1286,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6265326365113703437}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 644534100033049967}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
       insertIndex: -1
