@@ -10,7 +10,9 @@ public class LaserScript : MonoBehaviour
     [SerializeField] private LayerMask _crystalCluster;
     [SerializeField] private float _defaultLength;
     [SerializeField] private int _numOfReflections;
+    [SerializeField] private WinConditionGlow _crystalVisuals;
 
+    private bool _isConnectedToCrystal = false;
     private float _rayOffset = 0.01f; 
     private LineRenderer _lineRenderer;
     private RaycastHit _hit;
@@ -38,8 +40,8 @@ public class LaserScript : MonoBehaviour
         int validPoints = 0;
         positions[validPoints++] = _ray.origin;
 
-        bool hitAnyReflectiveSurface = false;
         int combinedMask = _reflectiveSurfaces.value | _crystalCluster.value;
+        bool hitCrystal = false;
 
         for (int i = 0; i < _numOfReflections; i++)
         {
@@ -55,6 +57,17 @@ public class LaserScript : MonoBehaviour
 
                 if (isCrystalCluster)
                 {
+                    if (_crystalVisuals == null)
+                    {
+                        _crystalVisuals = _hit.collider.GetComponent<WinConditionGlow>();
+                    }
+
+                    if (!_isConnectedToCrystal && _crystalVisuals != null)
+                    {
+                        _crystalVisuals.OnLaserEnter(this);
+                        _isConnectedToCrystal = true;
+                    }
+                    hitCrystal = true;
                     remainingLength = 0;
                     break;
                 }
@@ -65,13 +78,19 @@ public class LaserScript : MonoBehaviour
                 remainingLength -= Vector3.Distance(_ray.origin, _hit.point);
 
                 _ray = new Ray(newOrigin, reflectDir);
-                hitAnyReflectiveSurface = true;
             }
             else
             {
                 positions[validPoints++] = _ray.origin + _ray.direction * remainingLength;
                 break;
             }
+        }
+
+        if (_isConnectedToCrystal && !hitCrystal && _crystalVisuals != null)
+        {
+            _crystalVisuals.OnLaserExit(this);
+            _isConnectedToCrystal = false;
+            _crystalVisuals = null;
         }
 
         if (/*hitAnyReflectiveSurface &&*/ validPoints > 1)
