@@ -57,21 +57,20 @@ public class WinConditionGlow : MonoBehaviour
 
     private Color GetTargetColorForState(int beamCount)
     {
+        float pulse = Mathf.PingPong(Time.time * _pulseSpeed, 1f);
         switch (beamCount)
         {
             case 0:
-                return _baseColor;
+                return Color.black;
 
             case 1:
-                float pulse1 = Mathf.PingPong(Time.time * _pulseSpeed, 1f);
-                return Color.Lerp(_baseColor, _1beam, pulse1);
+                return Color.Lerp(Color.black, _1beam, pulse);
 
             case 2:
-                float pulse2 = Mathf.PingPong(Time.time * _pulseSpeed, 1f);
-                return Color.Lerp(_1beam, _2beam, pulse2);
+                return Color.Lerp(_1beam, _2beam, pulse);
 
             case 3:
-                return _3beam;
+                return Color.Lerp(_2beam, _3beam, pulse);
 
             default:
                 return _baseColor;
