@@ -93,7 +93,7 @@ public class LaserScript : MonoBehaviour
             _crystalVisuals = null;
         }
 
-        if (/*hitAnyReflectiveSurface &&*/ validPoints > 1)
+        if (validPoints > 1)
         {
 
             _lineRenderer.positionCount = validPoints;

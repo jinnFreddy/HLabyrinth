@@ -1560,18 +1560,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6333253523279062721, guid: 4aa87f412ce7c524faf0c5b47b9c1848, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6333253523279062721, guid: 4aa87f412ce7c524faf0c5b47b9c1848, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6333253523279062721, guid: 4aa87f412ce7c524faf0c5b47b9c1848, type: 3}
-      propertyPath: m_Color.r
-      value: 0.027350426
-      objectReference: {fileID: 0}
     - target: {fileID: 7278534669026435619, guid: 4aa87f412ce7c524faf0c5b47b9c1848, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1651,10 +1639,6 @@ PrefabInstance:
     - target: {fileID: 7278534669026435619, guid: 4aa87f412ce7c524faf0c5b47b9c1848, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9199539375287572859, guid: 4aa87f412ce7c524faf0c5b47b9c1848, type: 3}
-      propertyPath: m_Name
-      value: Progress Bar
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

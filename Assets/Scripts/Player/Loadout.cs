@@ -13,6 +13,8 @@ public class Loadout : MonoBehaviour
     public LoadoutSlot[] loadoutSlots = new LoadoutSlot[4];
     public int currentSlotIndex = -1;
 
+    [SerializeField] public int rewardItems = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

@@ -106,6 +106,10 @@ public class PlayerMovement : MonoBehaviour
             if (isSlowed) isSlowed = false;
             else if (!isSlowed) isSlowed = true;
         }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            GameManager.Instance.RestartPlaythrough();
+        }
 
         if (grounded) rb.linearDamping = groundDrag;
         else rb.linearDamping = 0;
