@@ -27,6 +27,7 @@ public class DisablingTraps : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, _maxDistance, _trapMask))
         {
+            CrosshairManager.Instance?.SetInteractingCrosshair();
             WireTrap trap = hit.collider.GetComponentInChildren<WireTrap>();
             if (trap != null && !trap._isDisabled)
             {
@@ -67,6 +68,7 @@ public class DisablingTraps : MonoBehaviour
         if (_progress >= 1f)
         {
             _currentTrap.Disable();
+            CrosshairManager.Instance?.SetNormalCrosshair();
             _progress = 0f;
             if (_progressBar) _progressBar.fillAmount = 0f;
         }

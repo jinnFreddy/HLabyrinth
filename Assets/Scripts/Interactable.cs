@@ -14,15 +14,16 @@ public class Interactable : MonoBehaviour
     //public GameObject aviso;
     //public TMP_Text aviso_text;
 
-    private Animator anim;
+    //private Animator anim;
 
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
+    //private void Awake()
+    //{
+    //    anim = GetComponent<Animator>();
+    //}
 
     private void Update()
     {
+        CrosshairManager.Instance?.SetNormalCrosshair();
         _numFound = Physics.OverlapBoxNonAlloc(_interactionPoint.position, _interactionBoxSize / 2, _colliders, Quaternion.identity, _interactableMask);
         
         //aviso.SetActive(false);
@@ -30,7 +31,7 @@ public class Interactable : MonoBehaviour
 
         if (_numFound > 0)
         {
-            
+            CrosshairManager.Instance?.SetInteractingCrosshair();
             //aviso.SetActive(true);
             //aviso_text.text = _colliders[0].name;
             var interactable = _colliders[0].GetComponent<IInteractable>();
@@ -38,8 +39,9 @@ public class Interactable : MonoBehaviour
             if (interactable != null && Input.GetKeyDown(KeyCode.E))
             {
                 interactable.Interact(this);
+                CrosshairManager.Instance?.SetNormalCrosshair();
                 //aviso.SetActive(false);
-                
+
                 //anim.SetBool("IsInteracting", true);
                 //_avisoBackground.SetActive(false);
             }
