@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - CrystalCluster
   - Shadow
+  - Camera
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Reflective
   - CrystalCluster
   - PP
-  - 
+  - Items
   - 
   - 
   - 
