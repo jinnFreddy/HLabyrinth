@@ -18,6 +18,7 @@ public class ShadowAggressiveState : ShadowFSMState
     public override void Enter()
     {
         base.Enter();
+        _shadow.pathController.SetAggresiveAnimation();
         agent = _shadow.GetComponent<NavMeshAgent>();
 
         agent.isStopped = false;
@@ -51,7 +52,7 @@ public class ShadowAggressiveState : ShadowFSMState
         }
 
         currentTarget = player.transform;
-        if (!isHandlingEvent && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 1f)
+        if (!isHandlingEvent && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 5f)
         {
             NavMeshAreaManager.Instance.ForcePathRecalculation(agent, currentTarget.position);
         }
@@ -60,7 +61,7 @@ public class ShadowAggressiveState : ShadowFSMState
     public override void Exit()
     {
         base.Exit();
-
+        _shadow.pathController.DisableAggressiveAnimation();
         agent = _shadow.GetComponent<NavMeshAgent>();
         Vector3 currentDestination = agent.hasPath ? agent.destination : Vector3.zero;
 
@@ -75,6 +76,8 @@ public class ShadowAggressiveState : ShadowFSMState
 
         try
         {
+            _shadow.pathController.DisableAggressiveAnimation();
+            _shadow.pathController.SetAttackAnimation();
             Debug.Log("Aggressive state: Target reached (non-pathing)");
 
             // Play sound

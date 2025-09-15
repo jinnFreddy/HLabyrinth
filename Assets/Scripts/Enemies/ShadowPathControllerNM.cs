@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class ShadowPathControllerNM : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Animator _animator;
     public Action OnTargetReachedEvent;
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class ShadowPathControllerNM : MonoBehaviour
 
     private Vector3 GetFurthestPointInOppositeDirection(Transform origin, float distance)
     {
-        Vector3 direction = -origin.forward;
+        Vector3 direction = /*-*/origin.forward;
         Vector3 targetPos = origin.position + direction * distance;
         targetPos.y = transform.position.y;
         return targetPos;
@@ -69,5 +70,50 @@ public class ShadowPathControllerNM : MonoBehaviour
         {
             agent.updateRotation = value;
         }
+    }
+
+    public void SetAggresiveAnimation()
+    {
+        _animator.SetBool("Aggressive", true);
+    }
+    public void DisableAggressiveAnimation()
+    {
+        _animator.SetBool("Aggressive", false);
+    }
+
+    public void SetShyAnimation()
+    {
+        _animator.SetBool("Shy", true);
+    }
+    public void DisableShyAnimation()
+    {
+        _animator.SetBool("Shy", false);
+    }
+
+    public void SetPatrolAnimation()
+    {
+        _animator.SetBool("Patrol", true);
+    }
+    public void DisablePatrolAnimation()
+    {
+        _animator.SetBool("Patrol", false);
+    }
+
+    public void SetInterestedAnimation()
+    {
+        _animator.SetBool("Interested", true);
+    }
+    public void DisableInterestedAnimation()
+    {
+        _animator.SetBool("Interested", false);
+    }
+
+    public void SetAttackAnimation()
+    {
+        _animator.SetBool("Attack", true);
+    }
+    public void DisableAttackAnimation()
+    {
+        _animator.SetBool("Attack", false);
     }
 }

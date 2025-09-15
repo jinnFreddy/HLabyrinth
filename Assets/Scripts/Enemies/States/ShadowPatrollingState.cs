@@ -14,6 +14,8 @@ public class ShadowPatrollingState : ShadowFSMState
     public override void Enter()
     {
         base.Enter();
+        _shadow.pathController.DisableAttackAnimation();
+        _shadow.pathController.SetPatrolAnimation();
         _shadow.pathController.EnableRotation(true);
         _shadow.pathController.SetMoveSpeed(moveSpeed);
         _shadow.pathController.SetRandomDestination(patrolRadius);
@@ -32,6 +34,7 @@ public class ShadowPatrollingState : ShadowFSMState
 
     public override void Exit() { 
         base.Exit();
+        _shadow.pathController.DisablePatrolAnimation();
         _shadow.pathController.OnTargetReachedEvent -= OnTargetReached;
 
     }

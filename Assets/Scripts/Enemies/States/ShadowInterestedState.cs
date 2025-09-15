@@ -18,9 +18,10 @@ public class ShadowInterestedState: ShadowFSMState
     public override void Enter()
     {
         base.Enter();
+        _shadow.pathController.SetInterestedAnimation();
         _shadow.pathController.EnableRotation(false);
         _shadow.pathController.SetMoveSpeed(moveSpeed);
-        _shadow.pathController.SetRandomDestination(patrolRadius);
+        _shadow.pathController.SetRandomDestination(0f/*patrolRadius*/);
         _shadow.pathController.OnTargetReachedEvent += OnTargetReached;
 
         GameObject target = _shadow.playerDetector.GetPlayerWithinRadius(playerDetectionRadius);
@@ -74,6 +75,7 @@ public class ShadowInterestedState: ShadowFSMState
     public override void Exit()
     {
         base.Exit();
+        _shadow.pathController.DisableInterestedAnimation();
         _shadow.pathController.OnTargetReachedEvent -= OnTargetReached;
         currentTarget = null;
         lookTime = 0f;
@@ -95,6 +97,6 @@ public class ShadowInterestedState: ShadowFSMState
 
     private void OnTargetReached()
     {
-        _shadow.pathController.SetRandomDestination(patrolRadius);
+        _shadow.pathController.SetRandomDestination(0f/*patrolRadius*/);
     }
 }

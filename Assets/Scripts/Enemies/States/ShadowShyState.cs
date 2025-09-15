@@ -14,6 +14,7 @@ public class ShadowShyState: ShadowFSMState
     public override void Enter()
     {
         base.Enter();
+        _shadow.pathController.SetShyAnimation();
         _shadow.pathController.EnableRotation(false);
         _shadow.pathController.SetMoveSpeed(moveSpeed);
         _shadow.pathController.SetFurthestDestination(radius);
@@ -39,6 +40,7 @@ public class ShadowShyState: ShadowFSMState
     public override void Exit()
     {
         base.Exit();
+        _shadow.pathController.DisableShyAnimation();
         _shadow.pathController.OnTargetReachedEvent -= OnTargetReached;
     }
     private void OnTargetReached()
