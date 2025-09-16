@@ -11,17 +11,17 @@ public class StatueAI : MonoBehaviour
     [SerializeField] private BoxCollider boxCollider;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private float speed;
+    [SerializeField] private Animator animator;
 
     //private AIPath aiPath;
     //private AIDestinationSetter aiDestinationSetter;
-    private NavMeshAgent agent;
+    [SerializeField] private NavMeshAgent agent;
     private GameObject? currentTarget;
 
     private void Awake()
     {
         //aiPath = FindFirstObjectByType<AIPath>();
         //aiDestinationSetter = FindFirstObjectByType<AIDestinationSetter>();
-        agent = GetComponent<NavMeshAgent>();
         agent.speed = speed;
         agent.isStopped = true;
     }
@@ -33,10 +33,15 @@ public class StatueAI : MonoBehaviour
         if(!IsAnyoneLookingAtMe() && currentTarget == null && target != null)
         {
             SetCurrentTarget(target);
+            animator.SetTrigger("Observing");
+            animator.speed = 1f;
+            agent.speed = speed;
         }
         else if (IsAnyoneLookingAtMe())
         {
             SetCurrentTarget(null);
+            animator.speed = 0f;
+            agent.speed = 0f;
         }
     }
     private GameObject GetPlayerWithinRadius()
@@ -97,19 +102,32 @@ public class StatueAI : MonoBehaviour
         Vector3[] corners = new Vector3[8];
         bounds.GetCorners(corners);
 
-        foreach(Vector3 corner in corners)
+        int visibleCorners = 0;
+        int totalCorners = 0;
+
+        foreach (Vector3 corner in corners)
         {
-            Vector3 direction = corner - cam.transform.position;
-            if(Physics.Raycast(cam.transform.position, direction, out RaycastHit hit)) {
-                if (hit.collider.gameObject == gameObject)
+            Vector3 viewportPoint = cam.WorldToViewportPoint(corner);
+            totalCorners++;
+            if (IsInScreenBounds(viewportPoint))
+            {
+                Vector3 direction = corner - cam.transform.position;
+                if (Physics.Raycast(cam.transform.position, direction, out RaycastHit hit))
                 {
-                    return true;
-                }    
+                    if (hit.collider.gameObject == gameObject)
+                    {
+                        visibleCorners++;
+                    }
+                }
             }
         }
-
-        return false;
+        return visibleCorners >= 2;
     }
 
-    
+    private bool IsInScreenBounds(Vector3 viewportPoint)
+    {
+        return viewportPoint.x >= 0 && viewportPoint.x <= 1 &&
+               viewportPoint.y >= 0 && viewportPoint.y <= 1 &&
+               viewportPoint.z > 0;
+    }
 }
