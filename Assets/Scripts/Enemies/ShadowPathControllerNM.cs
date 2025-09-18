@@ -6,6 +6,7 @@ public class ShadowPathControllerNM : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject closeTP;
     public Action OnTargetReachedEvent;
 
     // Update is called once per frame
@@ -115,5 +116,10 @@ public class ShadowPathControllerNM : MonoBehaviour
     public void DisableAttackAnimation()
     {
         _animator.SetBool("Attack", false);
+    }
+
+    public Vector3 GetTPposition()
+    {
+        return closeTP.transform.position;
     }
 }

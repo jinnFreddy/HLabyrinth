@@ -12,16 +12,14 @@ public class StatueAI : MonoBehaviour
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private float speed;
     [SerializeField] private Animator animator;
-
-    //private AIPath aiPath;
-    //private AIDestinationSetter aiDestinationSetter;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private float deathDistance = 2f;
+    [SerializeField] private float detectionRadius = 20f;
+    [SerializeField] private GameObject closeTP;
     private GameObject? currentTarget;
 
     private void Awake()
     {
-        //aiPath = FindFirstObjectByType<AIPath>();
-        //aiDestinationSetter = FindFirstObjectByType<AIDestinationSetter>();
         agent.speed = speed;
         agent.isStopped = true;
     }
@@ -43,6 +41,18 @@ public class StatueAI : MonoBehaviour
             animator.speed = 0f;
             agent.speed = 0f;
         }
+
+        if (currentTarget != null)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, currentTarget.transform.position);
+
+            if (distanceToPlayer <= deathDistance)
+            {
+                currentTarget.transform.position = closeTP.transform.position;
+                HandlePlayerDeath();
+                
+            }
+        }
     }
     private GameObject GetPlayerWithinRadius()
     {
@@ -50,7 +60,7 @@ public class StatueAI : MonoBehaviour
         if (player != null)
         {
             float distance = Vector3.Distance(transform.position, player.transform.position);
-            if (distance <= 20 * transform.localScale.x)
+            if (distance <= detectionRadius * transform.localScale.x)
             {
                 return player;
             }
@@ -64,14 +74,10 @@ public class StatueAI : MonoBehaviour
 
         if (target != null)
         {
-            //aiDestinationSetter.target = target.transform;
-            //aiPath.canMove = true;
             agent.isStopped = false;
             agent.SetDestination(target.transform.position);
         } else
         {
-            //aiDestinationSetter.target = null;
-            //aiPath.canMove = false;
             agent.isStopped = true;
             agent.ResetPath();
         }
@@ -129,5 +135,10 @@ public class StatueAI : MonoBehaviour
         return viewportPoint.x >= 0 && viewportPoint.x <= 1 &&
                viewportPoint.y >= 0 && viewportPoint.y <= 1 &&
                viewportPoint.z > 0;
+    }
+
+    private void HandlePlayerDeath()
+    {
+        GameManager.Instance.StartNewPlaythrough();
     }
 }

@@ -42,12 +42,18 @@ public class GameManager : MonoBehaviour
     [Header("Monsters")]
     [SerializeField] private List<GameObject> allMonsters = new List<GameObject>();
 
+    [Header("Settings")]
+    [SerializeField] private bool enableOnStart = true;
+    [SerializeField] private GameObject deathScreenPanel;
+    [SerializeField] private Animator deathScreenAnimator;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject mainTP;
+
     private List<List<GameObject>> allTrapSets = new List<List<GameObject>>();
     private List<GameObject> activeTrapSet;
     private List<GOState> allObjectStates = new List<GOState>();
-
-    [Header("Settings")]
-    [SerializeField] private bool enableOnStart = true;
+    private bool firstPlaythrough = true;
+    
 
     void Awake()
     {
@@ -60,6 +66,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
             return;
+        }
+
+        if (deathScreenPanel != null)
+        {
+            deathScreenPanel.SetActive(false);
         }
 
         allTrapSets.Add(trapSetA);
@@ -103,6 +114,13 @@ public class GameManager : MonoBehaviour
 
     public void StartNewPlaythrough()
     {
+        if (!firstPlaythrough)
+        {
+            DeathScreen();
+        }
+
+        firstPlaythrough = false;
+        
         ResetAllObjectsToOriginal();
         ResetTrapStates();
         DisableAllTraps();
@@ -171,5 +189,18 @@ public class GameManager : MonoBehaviour
     public void RestartPlaythrough()
     {
         StartNewPlaythrough();
+    }
+
+    public void DeathScreen()
+    {
+        if (deathScreenPanel != null)
+        {
+            deathScreenPanel.SetActive(true);
+        }
+
+        if (deathScreenAnimator != null)
+        {
+            deathScreenAnimator.Play("DeathScreen"); 
+        }
     }
 }

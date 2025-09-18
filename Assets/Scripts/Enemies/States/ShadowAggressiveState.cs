@@ -78,15 +78,15 @@ public class ShadowAggressiveState : ShadowFSMState
         {
             _shadow.pathController.DisableAggressiveAnimation();
             _shadow.pathController.SetAttackAnimation();
-            Debug.Log("Aggressive state: Target reached (non-pathing)");
 
             // Play sound
             // AudioSource.PlayClipAtPoint(attackSound, transform.position);
+            currentTarget.transform.position = _shadow.pathController.GetTPposition();
+            GameManager.Instance.StartNewPlaythrough();
         }
         finally
         {
             isHandlingEvent = false;
         }
-
     }
 }
