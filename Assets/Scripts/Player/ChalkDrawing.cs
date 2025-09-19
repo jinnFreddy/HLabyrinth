@@ -38,7 +38,7 @@ public class ChalkDrawing : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 GameObject decal = Instantiate(chalkDecalPrefab, hit.point, Quaternion.identity);
-                decal.transform.forward = hit.normal;  // Align the decal with the surface
+                decal.transform.forward = -hit.normal;  // Align the decal with the surface
             }
         }
     }
