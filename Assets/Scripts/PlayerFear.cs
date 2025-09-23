@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class PlayerFear : MonoBehaviour
 {
-    [Header("Targets")]
+    public static PlayerFear Instance;
+
+    [Header("Monsters")]
     public List<Transform> monsters = new List<Transform>();
 
     [Header("Heartbeat Settings")]
@@ -35,6 +37,7 @@ public class PlayerFear : MonoBehaviour
     private void Start()
     {
         SoundManager.StartHeartbeat();
+        SoundManager.StartParanoiaSounds();
         currentThreatDistance = maxHeartbeatDistance;
     }
 
@@ -80,6 +83,7 @@ public class PlayerFear : MonoBehaviour
     private void OnDestroy()
     {
         SoundManager.StopHeartbeat();
+        SoundManager.StopParanoiaSounds();
     }
 
     private void OnDrawGizmos()

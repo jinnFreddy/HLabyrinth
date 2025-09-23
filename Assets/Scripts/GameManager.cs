@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator deathScreenAnimator;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject mainTP;
+    public PlayerMovement playerMovement;
+    public float postRestartDelay = 5f;
 
     private List<List<GameObject>> allTrapSets = new List<List<GameObject>>();
     private List<GameObject> activeTrapSet;
@@ -114,6 +116,9 @@ public class GameManager : MonoBehaviour
 
     public void StartNewPlaythrough()
     {
+        SoundManager.StopHeartbeat();
+        SoundManager.StopParanoiaSounds();
+
         if (!firstPlaythrough)
         {
             DeathScreen();
@@ -130,6 +135,17 @@ public class GameManager : MonoBehaviour
 
         EnableObjects(activeTrapSet);
         EnableObjects(allMonsters);
+        Invoke(nameof(ResumeAfterRestart), postRestartDelay);
+    }
+
+    private void ResumeAfterRestart()
+    {
+        SoundManager.StartParanoiaSounds();
+
+        if (playerMovement != null)
+        {
+            playerMovement.enabled = false;
+        }
     }
 
     private void ResetAllObjectsToOriginal()
