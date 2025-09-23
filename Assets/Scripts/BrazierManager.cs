@@ -6,7 +6,6 @@ public class BrazierManager : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] private float _NumberOfBraziers;
-    // [SerializeField] private AudioClip brazierLitSound;
     [SerializeField] private float finalWinDelay;
     [SerializeField] private Transform wallTransform;
     [SerializeField] private float _risingUnits;
@@ -61,6 +60,7 @@ public class BrazierManager : MonoBehaviour
         // Trigger cutscene, open door, activate final clue, etc.
         if (!isCageOpening && wallTransform != null)
         {
+            SoundManager.PlaySound(SoundType.METALDOOR);
             isCageOpening = true;
             StartCoroutine(OpenCage());
             Debug.Log("[BrazierManager] Puzzle complete!");

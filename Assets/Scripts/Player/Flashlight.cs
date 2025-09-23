@@ -14,6 +14,7 @@ public class Flashlight : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.F))
         {
+            SoundManager.PlaySound(SoundType.LIGHT, 1f);
             if (_isFlashlightActive == false)
             {
                 _flashlight.SetActive(true);

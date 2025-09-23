@@ -6,6 +6,7 @@ public class ShadowAggressiveState : ShadowFSMState
 {
     private readonly float moveSpeed = 6f;
     private readonly int radius = 20;
+    private readonly float triggerDistance = 2.0f;
     private Transform currentTarget;
     private NavMeshAgent agent;
     private bool isHandlingEvent = false;
@@ -52,6 +53,16 @@ public class ShadowAggressiveState : ShadowFSMState
         }
 
         currentTarget = player.transform;
+        Vector3 playerPos = currentTarget.position;
+        Vector3 myPos = _shadow.transform.position;
+        float distanceToPlayer = Vector3.Distance(myPos, playerPos);
+
+        if (distanceToPlayer <= triggerDistance)
+        {
+            HandlePlayerCaught();
+            return;
+        }
+
         if (!isHandlingEvent && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 5f)
         {
             NavMeshAreaManager.Instance.ForcePathRecalculation(agent, currentTarget.position);
@@ -70,8 +81,9 @@ public class ShadowAggressiveState : ShadowFSMState
         currentTarget = null;
     }
 
-    private void SafeOnTargetReached()
+    private void HandlePlayerCaught()
     {
+        if (isHandlingEvent) return;
         isHandlingEvent = true;
 
         try
@@ -79,14 +91,25 @@ public class ShadowAggressiveState : ShadowFSMState
             _shadow.pathController.DisableAggressiveAnimation();
             _shadow.pathController.SetAttackAnimation();
 
-            // Play sound
-            // AudioSource.PlayClipAtPoint(attackSound, transform.position);
-            currentTarget.transform.position = _shadow.pathController.GetTPposition();
+            if (currentTarget != null)
+            {
+                currentTarget.position = _shadow.pathController.GetTPposition();
+            }
+
             GameManager.Instance.StartNewPlaythrough();
         }
         finally
         {
             isHandlingEvent = false;
+        }
+    }
+
+
+    private void SafeOnTargetReached()
+    {
+        if (!isHandlingEvent)
+        {
+            HandlePlayerCaught();
         }
     }
 }

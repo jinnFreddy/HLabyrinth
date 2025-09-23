@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerDetector : MonoBehaviour
 {
-    [SerializeField] private LayerMask playerLayer;
     [SerializeField] private BoxCollider boxCollider;
 
     public GameObject GetPlayerWithinRadius(int radius)

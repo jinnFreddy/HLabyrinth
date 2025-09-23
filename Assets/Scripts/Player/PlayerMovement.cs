@@ -48,6 +48,12 @@ public class PlayerMovement : MonoBehaviour
     public float sprintStaminaCost;
     public float jumpStaminaCost;
 
+    [Header("Footsteps")]
+    public float footstepTimer = 0f;
+    public float walkStepInterval = 0.6f;
+    public float runStepInterval = 0.4f;
+    public bool hasGroundedBefore = false;
+
     [Header("Hurt Condition")]
     public bool isSlowed; 
     public float hurtSpeedMultiplier;
@@ -157,6 +163,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+                SoundManager.PlaySound(SoundType.HURT);
                 state = MovementState.walking; 
                 moveSpeed = walkSpeed * hurtSpeedMultiplier; 
             }
@@ -175,7 +182,8 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
-            stamina -= sprintStaminaCost * Time.deltaTime;  
+            stamina -= sprintStaminaCost * Time.deltaTime;
+            UpdateFootsteps(runStepInterval);
         }
 
         // Walking
@@ -183,6 +191,7 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.walking;
             moveSpeed = walkSpeed;
+            UpdateFootsteps(walkStepInterval);
         }
 
         // Air
@@ -287,6 +296,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void KillPlayer()
     {
-        Debug.Log("Player died");
+        GameManager.Instance.StartNewPlaythrough();
+    }
+
+    private void UpdateFootsteps(float stepInterval)
+    {
+        if (!hasGroundedBefore)
+        {
+            hasGroundedBefore = true;
+            footstepTimer = stepInterval;
+            return;
+        }
+
+        Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        if (flatVelocity.magnitude < 0.5f) return; // Not actually moving
+
+        footstepTimer += Time.deltaTime;
+
+        if (footstepTimer >= stepInterval)
+        {
+            if (state == MovementState.sprinting)
+            {
+                SoundManager.PlaySoundWithPitch(SoundType.RUN, volume: 1f, pitch: 1.4f);
+            }
+            else
+            {
+                SoundManager.PlaySound(SoundType.WALK);
+            }
+            footstepTimer = 0f;
+        }
     }
 }

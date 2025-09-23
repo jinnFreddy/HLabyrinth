@@ -856,6 +856,7 @@ GameObject:
   - component: {fileID: 8082931741112273823}
   - component: {fileID: 4575528152393236033}
   - component: {fileID: 2097930027455086423}
+  - component: {fileID: 4479388066296698172}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1017,6 +1018,27 @@ MonoBehaviour:
     keyCode: 52
   currentSlotIndex: -1
   rewardItems: 0
+--- !u!114 &4479388066296698172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7172526920218018589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7e69cf3a275eb44855370e3189f1ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 0}
+  player: {fileID: 8771252474096167117}
+  maxHeartbeatDistance: 20
+  minHeartbeatDistance: 3
+  updateInterval: 0.1
+  maxVolume: 1
+  minVolume: 0.1
+  maxPitch: 2
+  minPitch: 1
 --- !u!1 &8258221702956811633
 GameObject:
   m_ObjectHideFlags: 0

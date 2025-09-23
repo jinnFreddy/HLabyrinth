@@ -136,6 +136,7 @@ public class CageController : MonoBehaviour
                 float elapsed = 0f;
                 while (elapsed < wallCloseDuration)
                 {
+                    SoundManager.PlaySound(SoundType.METALDOOR);
                     walls.position = Vector3.Lerp(startPos, targetPos, elapsed / wallCloseDuration);
                     elapsed += Time.deltaTime;
                     yield return null;

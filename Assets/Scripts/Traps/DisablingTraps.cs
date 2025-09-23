@@ -63,7 +63,7 @@ public class DisablingTraps : MonoBehaviour
             _progress = 0f;
             return;
         }
-
+        SoundManager.PlaySound(SoundType.DISABLE, 1f);
         _progress += Time.deltaTime / _disableTime;
         if (_progress >= 1f)
         {

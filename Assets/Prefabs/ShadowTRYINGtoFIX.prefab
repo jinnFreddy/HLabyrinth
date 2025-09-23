@@ -1,5 +1,2006 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1563751102619601057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571329}
+  m_Layer: 0
+  m_Name: Hideoplast_ Neck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -5.684342e-14, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5010731, y: -0.00021743774, z: -6.0303135e-10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571353}
+  m_Father: {fileID: 1563751102619571367}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.0000017075474}
+--- !u!1 &1563751102619601059
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571331}
+  m_Layer: 0
+  m_Name: Hideoplast_ L UpperArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601059}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.41007775, y: -0.3122702, z: 0.0746248, w: 0.8536714}
+  m_LocalPosition: {x: -0.44540685, y: 0, z: 0.00000015258789}
+  m_LocalScale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571349}
+  m_Father: {fileID: 1563751102619571357}
+  m_LocalEulerAnglesHint: {x: -7.909865, y: -8.583851, z: 10.7968}
+--- !u!1 &1563751102619601061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571333}
+  m_Layer: 0
+  m_Name: Hideoplast_ Ponytail1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571333
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601061}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7156986, y: -0.27749494, z: -0.47447032, w: 0.43087134}
+  m_LocalPosition: {x: -0.26423857, y: 0.044542387, z: 0.30740675}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571387}
+  - {fileID: 1563751102619571409}
+  - {fileID: 1563751102619571405}
+  - {fileID: 1563751102619571449}
+  m_Father: {fileID: 1563751102619571353}
+  m_LocalEulerAnglesHint: {x: 20.696684, y: -100.99752, z: -89.44481}
+--- !u!1 &1563751102619601063
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571335}
+  m_Layer: 0
+  m_Name: Hideoplast_ Pelvis
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601063}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.35355267, y: -0.61237097, z: 0.61237395, w: -0.3535541}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 0.9999998}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571343}
+  - {fileID: 1563751102619571375}
+  - {fileID: 1563751102619571361}
+  - {fileID: 1563751102619571365}
+  m_Father: {fileID: 1563751102619571355}
+  m_LocalEulerAnglesHint: {x: 71.44496, y: -77.419365, z: 162.13051}
+--- !u!1 &1563751102619601065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571337}
+  m_Layer: 0
+  m_Name: Hideoplast_ L HorseLink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601065}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000008067834, y: -0.00000001585866, z: -0.35763407, w: 0.93386185}
+  m_LocalPosition: {x: -1.5367829, y: 0.00000030517577, z: -0.000000038146972}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571351}
+  m_Father: {fileID: 1563751102619571359}
+  m_LocalEulerAnglesHint: {x: -0.000005158124, y: 0.0000007391769, z: -63.163136}
+--- !u!1 &1563751102619601067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571339}
+  m_Layer: 0
+  m_Name: Hideoplast_ L Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571339
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601067}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.033486344, y: -0.09316119, z: -0.340303, w: 0.9350901}
+  m_LocalPosition: {x: -1.4037026, y: 0.000000114440915, z: -0.00000015258789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571347}
+  m_Father: {fileID: 1563751102619571349}
+  m_LocalEulerAnglesHint: {x: -8.202325, y: -7.450487, z: -13.086927}
+--- !u!1 &1563751102619601069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571341}
+  m_Layer: 0
+  m_Name: Hideoplast_ L Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601069}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000015077953, y: -0.000000015013933, z: -0.36941457, w: 0.9292647}
+  m_LocalPosition: {x: -0.1907649, y: 0.24227752, z: -0.000000038146972}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571351}
+  m_LocalEulerAnglesHint: {x: -2.3132837, y: -4.433918, z: -117.49883}
+--- !u!1 &1563751102619601071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571343}
+  m_Layer: 0
+  m_Name: Hideoplast_ L Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601071}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.919687, y: -0.3794196, z: -0.062223993, w: -0.07965443}
+  m_LocalPosition: {x: 0.0000007629394, y: 0.0000008010864, z: 0.5657691}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571359}
+  m_Father: {fileID: 1563751102619571335}
+  m_LocalEulerAnglesHint: {x: -21.72425, y: 178.97212, z: -116.13753}
+--- !u!1 &1563751102619601073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571345}
+  m_Layer: 0
+  m_Name: Hideoplast_ L Finger01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601073}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000008567645, y: -0.0000000317794, z: -0.17410813, w: 0.98472655}
+  m_LocalPosition: {x: -0.28625503, y: 0, z: 0.00000015258789}
+  m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571347}
+  m_LocalEulerAnglesHint: {x: 3.5943015, y: 3.3420513, z: 51.949177}
+--- !u!1 &1563751102619601075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571347}
+  m_Layer: 0
+  m_Name: Hideoplast_ L Finger0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601075}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0003981516, y: 0.00000001490116, z: 5.9329213e-12, w: 0.99999994}
+  m_LocalPosition: {x: -0.47032145, y: 0.000000076293944, z: 0.00000015258789}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571345}
+  m_Father: {fileID: 1563751102619571339}
+  m_LocalEulerAnglesHint: {x: -18.523285, y: -16.863556, z: 24.094679}
+--- !u!1 &1563751102619601077
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571349}
+  m_Layer: 0
+  m_Name: Hideoplast_ L Forearm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601077}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000000060191905, y: 0.000000013631359, z: 0.40394104, w: 0.914785}
+  m_LocalPosition: {x: -1.4442278, y: 0, z: -0.00000015258789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571339}
+  m_Father: {fileID: 1563751102619571331}
+  m_LocalEulerAnglesHint: {x: 0.0000059299696, y: -0.00000007942349, z: 58.976215}
+--- !u!1 &1563751102619601079
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571351}
+  m_Layer: 0
+  m_Name: Hideoplast_ L Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601079}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.001665839, y: 0.017835995, z: 0.46971875, w: 0.88263434}
+  m_LocalPosition: {x: -0.48370665, y: 0, z: 0.000000038146972}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571341}
+  m_Father: {fileID: 1563751102619571337}
+  m_LocalEulerAnglesHint: {x: 2.483902, y: 3.8261912, z: 42.020054}
+--- !u!1 &1563751102619601081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571353}
+  m_Layer: 0
+  m_Name: Hideoplast_ Head
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601081}
+  serializedVersion: 2
+  m_LocalRotation: {x: -7.9293966e-13, y: -0.000000998799, z: 0.36010984, w: 0.9329099}
+  m_LocalPosition: {x: -0.27307966, y: 0, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571333}
+  - {fileID: 1563751102619571385}
+  - {fileID: 1563751102619571421}
+  - {fileID: 1563751102619571411}
+  m_Father: {fileID: 1563751102619571329}
+  m_LocalEulerAnglesHint: {x: -11.832131, y: 3.3735738, z: 10.247415}
+--- !u!1 &1563751102619601083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571355}
+  m_Layer: 0
+  m_Name: Hideoplast_
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601083}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071063, w: 0.70710725}
+  m_LocalPosition: {x: -0, y: 0.5504915, z: 1.2955657}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571335}
+  m_Father: {fileID: 1563751102619571445}
+  m_LocalEulerAnglesHint: {x: 5, y: 4.9999933, z: 89.99992}
+--- !u!1 &1563751102619601085
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571357}
+  m_Layer: 0
+  m_Name: Hideoplast_ L Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601085}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.68312216, y: -0.18260367, z: -0.68297654, w: 0.18314767}
+  m_LocalPosition: {x: -0.4012326, y: -0.27586228, z: 0.20173095}
+  m_LocalScale: {x: 1, y: 0.9999999, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571331}
+  m_Father: {fileID: 1563751102619571367}
+  m_LocalEulerAnglesHint: {x: -5.957756, y: -79.51239, z: -150.53107}
+--- !u!1 &1563751102619601087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571359}
+  m_Layer: 0
+  m_Name: Hideoplast_ L Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571359
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601087}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000017529128, y: 0.000000008420175, z: 0.67374414, w: 0.73896474}
+  m_LocalPosition: {x: -1.9994425, y: 0.000000076293944, z: -0.000000038146972}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571337}
+  m_Father: {fileID: 1563751102619571343}
+  m_LocalEulerAnglesHint: {x: -0.0000005543493, y: -0.00000064932743, z: 139.51166}
+--- !u!1 &1563751102619601089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571361}
+  m_Layer: 0
+  m_Name: Hideoplast_ Spine
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.80446815, y: 0.5939958, z: -0.0000015525482, w: 0.0000009808332}
+  m_LocalPosition: {x: -0.35650602, y: -0.34118408, z: 0.0000024404424}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571367}
+  m_Father: {fileID: 1563751102619571335}
+  m_LocalEulerAnglesHint: {x: 16.868246, y: 176.56548, z: 100.34302}
+--- !u!1 &1563751102619601091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571363}
+  m_Layer: 0
+  m_Name: Hideoplast_ R UpperArm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601091}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.41007775, y: 0.31227013, z: 0.074624754, w: 0.8536713}
+  m_LocalPosition: {x: -0.44540694, y: 0, z: -0.00000015258789}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571381}
+  m_Father: {fileID: 1563751102619571389}
+  m_LocalEulerAnglesHint: {x: -22.562677, y: 16.392778, z: 31.505852}
+--- !u!1 &1563751102619601093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571365}
+  m_Layer: 0
+  m_Name: Hideoplast_ Tail
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601093}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.41511866, y: 0.9097673, z: 0.0000008774441, w: -0.0000028885743}
+  m_LocalPosition: {x: -0.49508497, y: 0.39205372, z: 0.0000004011672}
+  m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571419}
+  m_Father: {fileID: 1563751102619571335}
+  m_LocalEulerAnglesHint: {x: 4.529648, y: -176.20662, z: -44.812378}
+--- !u!1 &1563751102619601095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571367}
+  m_Layer: 0
+  m_Name: Hideoplast_ Spine1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601095}
+  serializedVersion: 2
+  m_LocalRotation: {x: 4.6171332e-14, y: -0.000000016176774, z: 0.0058323983, w: 0.999983}
+  m_LocalPosition: {x: -0.50106853, y: -0.00039901733, z: -0.0000000011065276}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571357}
+  - {fileID: 1563751102619571329}
+  - {fileID: 1563751102619571389}
+  m_Father: {fileID: 1563751102619571361}
+  m_LocalEulerAnglesHint: {x: 2.454652, y: 0.111586586, z: -5.466711}
+--- !u!1 &1563751102619601097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571369}
+  m_Layer: 0
+  m_Name: Hideoplast_ R HorseLink
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601097}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000002701298, y: 0.00000002788665, z: -0.35763413, w: 0.9338618}
+  m_LocalPosition: {x: -1.5367832, y: 0.00000030517577, z: -0.00000019073485}
+  m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571383}
+  m_Father: {fileID: 1563751102619571391}
+  m_LocalEulerAnglesHint: {x: -0.00000037321536, y: 0.0000009350817, z: -36.2364}
+--- !u!1 &1563751102619601099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571371}
+  m_Layer: 0
+  m_Name: Hideoplast_ R Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571371
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601099}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.03348632, y: 0.09316116, z: -0.340303, w: 0.9350901}
+  m_LocalPosition: {x: -1.4037025, y: 0.00000015258789, z: 0}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571379}
+  m_Father: {fileID: 1563751102619571381}
+  m_LocalEulerAnglesHint: {x: -2.3307464, y: -4.3008137, z: -64.29421}
+--- !u!1 &1563751102619601101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571373}
+  m_Layer: 0
+  m_Name: Hideoplast_ R Toe0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601101}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000000049693143, y: 0.000000019013118, z: -0.3694146, w: 0.92926466}
+  m_LocalPosition: {x: -0.19076492, y: 0.24227722, z: 0.000000114440915}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571383}
+  m_LocalEulerAnglesHint: {x: 1.089555, y: 4.8803906, z: -102.552795}
+--- !u!1 &1563751102619601103
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571375}
+  m_Layer: 0
+  m_Name: Hideoplast_ R Thigh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601103}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.919687, y: -0.37941918, z: 0.06222152, w: 0.079658225}
+  m_LocalPosition: {x: -0.0000009155273, y: -0.0000008392334, z: -0.5657691}
+  m_LocalScale: {x: 1, y: 1.0000001, z: 1.0000002}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571391}
+  m_Father: {fileID: 1563751102619571335}
+  m_LocalEulerAnglesHint: {x: 30.500454, y: 157.05429, z: -131.99887}
+--- !u!1 &1563751102619601105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571377}
+  m_Layer: 0
+  m_Name: Hideoplast_ R Finger01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601105}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0000000035115117, y: 0.000000014511418, z: -0.17410815, w: 0.98472655}
+  m_LocalPosition: {x: -0.28625494, y: 0.00000015258789, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571379}
+  m_LocalEulerAnglesHint: {x: -7.721064, y: -1.2307129, z: -26.63501}
+--- !u!1 &1563751102619601107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571379}
+  m_Layer: 0
+  m_Name: Hideoplast_ R Finger0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601107}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00039815909, y: -0.000000014898194, z: 0.000000007456513, w: 0.99999994}
+  m_LocalPosition: {x: -0.4703214, y: -0.000000076293944, z: 0}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571377}
+  m_Father: {fileID: 1563751102619571371}
+  m_LocalEulerAnglesHint: {x: 18.523281, y: 16.86356, z: -13.160983}
+--- !u!1 &1563751102619601109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571381}
+  m_Layer: 0
+  m_Name: Hideoplast_ R Forearm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601109}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000013631359, y: 0.0000000060191905, z: 0.40394104, w: 0.914785}
+  m_LocalPosition: {x: -1.4442278, y: 0, z: 0.00000015258789}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571371}
+  m_Father: {fileID: 1563751102619571363}
+  m_LocalEulerAnglesHint: {x: 0.000002942914, y: -0.000007300566, z: 99.425934}
+--- !u!1 &1563751102619601111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571383}
+  m_Layer: 0
+  m_Name: Hideoplast_ R Foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601111}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0016657744, y: -0.017835923, z: 0.4697192, w: 0.8826341}
+  m_LocalPosition: {x: -0.48370665, y: 0, z: 0.00000015258789}
+  m_LocalScale: {x: 0.99999976, y: 0.99999976, z: 0.99999964}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571373}
+  m_Father: {fileID: 1563751102619571369}
+  m_LocalEulerAnglesHint: {x: 6.825837, y: 15.590746, z: 54.398037}
+--- !u!1 &1563751102619601113
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571385}
+  m_Layer: 0
+  m_Name: Hideoplast_ Ponytail2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601113}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.71569866, y: -0.27749744, z: 0.4744688, w: -0.4308713}
+  m_LocalPosition: {x: -0.26423827, y: 0.04454414, z: -0.3074065}
+  m_LocalScale: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571403}
+  - {fileID: 1563751102619571399}
+  - {fileID: 1563751102619571443}
+  m_Father: {fileID: 1563751102619571353}
+  m_LocalEulerAnglesHint: {x: -20.696732, y: 100.99776, z: -89.44462}
+--- !u!1 &1563751102619601115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571387}
+  m_Layer: 0
+  m_Name: Hideoplast_ Ponytail1Nub
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601115}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7073883, y: -0.7068252, z: -0.0000009905157, w: -0.0000009897273}
+  m_LocalPosition: {x: -0.72502685, y: -0.00000006198883, z: -0.00000015258789}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571333}
+  m_LocalEulerAnglesHint: {x: -0.00015944216, y: -180, z: -90.045616}
+--- !u!1 &1563751102619601117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571389}
+  m_Layer: 0
+  m_Name: Hideoplast_ R Clavicle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601117}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6831216, y: -0.18260562, z: 0.68297607, w: -0.18314953}
+  m_LocalPosition: {x: -0.4012326, y: -0.2758612, z: -0.20173247}
+  m_LocalScale: {x: 1.0000001, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571363}
+  m_Father: {fileID: 1563751102619571367}
+  m_LocalEulerAnglesHint: {x: -2.5916426, y: 86.29455, z: 145.55414}
+--- !u!1 &1563751102619601119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571391}
+  m_Layer: 0
+  m_Name: Hideoplast_ R Calf
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000007813328, y: 0.000000012164953, z: 0.67374396, w: 0.7389649}
+  m_LocalPosition: {x: -1.999442, y: 0.00000022888183, z: 0.000000076293944}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571369}
+  m_Father: {fileID: 1563751102619571375}
+  m_LocalEulerAnglesHint: {x: 0.0000028207958, y: -0.0000051019065, z: 95.1883}
+--- !u!1 &1563751102619601121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571393}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleMiddleLeft_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601121}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000005223929, y: 0.00000010640841, z: 0.25969124, w: 0.9656917}
+  m_LocalPosition: {x: -0.5220751, y: -0.0000042796128, z: -0.000000014673745}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571395}
+  m_LocalEulerAnglesHint: {x: -0.4895809, y: 2.0832777, z: 80.93604}
+--- !u!1 &1563751102619601123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571395}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleMiddleLeft_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601123}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.27502847, w: 0.9614361}
+  m_LocalPosition: {x: -0.6944638, y: -0.0000070738047, z: -0.00000007918103}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571393}
+  m_Father: {fileID: 1563751102619571405}
+  m_LocalEulerAnglesHint: {x: -1.4852653, y: 1.1092995, z: 52.673805}
+--- !u!1 &1563751102619601125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571397}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleMiddleRight_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601125}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000024743838, y: 0.0000000018994646, z: -0.27502847, w: 0.9614361}
+  m_LocalPosition: {x: -0.6944638, y: 0.000007171631, z: 0.00000030517577}
+  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571451}
+  m_Father: {fileID: 1563751102619571399}
+  m_LocalEulerAnglesHint: {x: 0.15011925, y: 0.12610665, z: -53.69145}
+--- !u!1 &1563751102619601127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571399}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleMiddleRight_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601127}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.731877, y: 0.110360436, z: -0.090957224, w: 0.6662607}
+  m_LocalPosition: {x: -0.75134367, y: 0.19307518, z: -0.07248199}
+  m_LocalScale: {x: 1.0000001, y: 0.9999999, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571397}
+  m_Father: {fileID: 1563751102619571385}
+  m_LocalEulerAnglesHint: {x: 68.90188, y: -144.11446, z: -164.86848}
+--- !u!1 &1563751102619601129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571401}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleLowerRight_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571401
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000021449675, y: -0.00000010655397, z: -0.3576728, w: 0.933847}
+  m_LocalPosition: {x: -0.5847855, y: 0.00000015258789, z: -0.00000030517577}
+  m_LocalScale: {x: 0.99999976, y: 0.99999994, z: 0.99999976}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571407}
+  m_Father: {fileID: 1563751102619571403}
+  m_LocalEulerAnglesHint: {x: -3.9134412, y: -2.4453936, z: -66.66023}
+--- !u!1 &1563751102619601131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571403}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleLowerRight_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601131}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.66487914, y: 0.28494862, z: -0.1308967, w: 0.6779425}
+  m_LocalPosition: {x: -0.76357985, y: 0.17095138, z: 0.35386992}
+  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571401}
+  m_Father: {fileID: 1563751102619571385}
+  m_LocalEulerAnglesHint: {x: 82.60075, y: -50.71651, z: -98.93506}
+--- !u!1 &1563751102619601133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571405}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleMiddleLeft_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571405
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601133}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.66626245, y: -0.09095652, z: 0.110361144, w: 0.7318755}
+  m_LocalPosition: {x: -0.7514453, y: 0.19327419, z: 0.072441556}
+  m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571395}
+  m_Father: {fileID: 1563751102619571333}
+  m_LocalEulerAnglesHint: {x: 68.888695, y: -45.62495, z: -22.288013}
+--- !u!1 &1563751102619601135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571407}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleLowerRight_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601135}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.000000017516372, y: -0.00000007451614, z: -0.22883095, w: 0.9734662}
+  m_LocalPosition: {x: -0.37857443, y: 0.00000015258789, z: 0.00000015258789}
+  m_LocalScale: {x: 1.0000004, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571401}
+  m_LocalEulerAnglesHint: {x: 0.4428282, y: 0.34922752, z: -76.42995}
+--- !u!1 &1563751102619601137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571409}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleLowerLeft_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6779442, y: -0.13089685, z: 0.28494906, w: 0.6648773}
+  m_LocalPosition: {x: -0.7637733, y: 0.17133571, z: -0.35394743}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571415}
+  m_Father: {fileID: 1563751102619571333}
+  m_LocalEulerAnglesHint: {x: 77.64503, y: -75.294106, z: -23.73947}
+--- !u!1 &1563751102619601139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571411}
+  m_Layer: 0
+  m_Name: Hideoplast_jawUpper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.81071293, y: -0.58544385, z: -0.00000023066492, w: -0.0000004950673}
+  m_LocalPosition: {x: -0.74845976, y: 0.25634536, z: -0.00000061035155}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571353}
+  m_LocalEulerAnglesHint: {x: -0.00006246113, y: -179.99998, z: -122.80473}
+--- !u!1 &1563751102619601141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571413}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleLowerLeft_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601141}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.22883104, w: 0.97346616}
+  m_LocalPosition: {x: -0.37857428, y: 0.00000034235418, z: 0.0000000030616865}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571415}
+  m_LocalEulerAnglesHint: {x: -0.074741706, y: 0.35402107, z: 83.70484}
+--- !u!1 &1563751102619601143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571415}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleLowerLeft_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000020244242, y: -0.00000005285564, z: 0.3576728, w: 0.933847}
+  m_LocalPosition: {x: -0.58478564, y: 0.0000000011920929, z: -0.00000006266364}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571413}
+  m_Father: {fileID: 1563751102619571409}
+  m_LocalEulerAnglesHint: {x: -2.6696734, y: 2.034549, z: 55.182346}
+--- !u!1 &1563751102619601145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571417}
+  m_Layer: 0
+  m_Name: Hideoplast_ Tail2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571417
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601145}
+  serializedVersion: 2
+  m_LocalRotation: {x: -7.070874e-14, y: -0.00000046895653, z: 0.16907863, w: 0.98560256}
+  m_LocalPosition: {x: -0.31092238, y: -0.00022750854, z: -6.3126204e-10}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571423}
+  m_Father: {fileID: 1563751102619571419}
+  m_LocalEulerAnglesHint: {x: 2.4425976, y: -5.129364, z: 14.119508}
+--- !u!1 &1563751102619601147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571419}
+  m_Layer: 0
+  m_Name: Hideoplast_ Tail1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601147}
+  serializedVersion: 2
+  m_LocalRotation: {x: 1.5337776e-13, y: -0.00000039779744, z: 0.14342278, w: 0.9896615}
+  m_LocalPosition: {x: -0.31022018, y: -0.00023742675, z: -6.583286e-10}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571417}
+  m_Father: {fileID: 1563751102619571365}
+  m_LocalEulerAnglesHint: {x: 1.4293247, y: -2.8682594, z: 16.326153}
+--- !u!1 &1563751102619601149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571421}
+  m_Layer: 0
+  m_Name: Hideoplast_JawLower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571421
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7565395, y: -0.65394795, z: -0.00000045404082, w: -0.0000005684794}
+  m_LocalPosition: {x: 0.3347223, y: 0.28655213, z: -0.0000007629394}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571353}
+  m_LocalEulerAnglesHint: {x: -0.000050595747, y: -179.99992, z: -153.18182}
+--- !u!1 &1563751102619601151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571423}
+  m_Layer: 0
+  m_Name: Hideoplast_ Tail3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601151}
+  serializedVersion: 2
+  m_LocalRotation: {x: 2.9739297e-13, y: -0.0000006465261, z: 0.23309995, w: 0.9724528}
+  m_LocalPosition: {x: -0.30291542, y: -0.00032234192, z: -8.9406965e-10}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571417}
+  m_LocalEulerAnglesHint: {x: 5.763424, y: -4.9924264, z: 21.141338}
+--- !u!1 &1563751102619601161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571435}
+  - component: {fileID: 1563751102612323195}
+  - component: {fileID: 6377826118829150252}
+  m_Layer: 0
+  m_Name: Hideoplast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601161}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1563751102619571445}
+  - {fileID: 1563751102619571433}
+  m_Father: {fileID: 6353207420798801139}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1563751102612323195
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601161}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b56cfb3dbb4699f40aefce6e2ebfd1fd, type: 3}
+  m_Controller: {fileID: 9100000, guid: d241beb232aeafe47ab9283960e5f5fe, type: 2}
+  m_CullingMode: 1
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6377826118829150252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c141c5b7e60332c4e89ac6b34550a7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1563751102619601163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571433}
+  - component: {fileID: 1563751102608098747}
+  m_Layer: 0
+  m_Name: SK_Hideoplast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601163}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.025588378, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571435}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1563751102608098747
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601163}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 6f2fbeb3cdcd810448fbf4e349903591, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 4
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: b56cfb3dbb4699f40aefce6e2ebfd1fd, type: 3}
+  m_Bones:
+  - {fileID: 1563751102619571367}
+  - {fileID: 1563751102619571361}
+  - {fileID: 1563751102619571357}
+  - {fileID: 1563751102619571329}
+  - {fileID: 1563751102619571389}
+  - {fileID: 1563751102619571353}
+  - {fileID: 1563751102619571331}
+  - {fileID: 1563751102619571363}
+  - {fileID: 1563751102619571333}
+  - {fileID: 1563751102619571385}
+  - {fileID: 1563751102619571421}
+  - {fileID: 1563751102619571349}
+  - {fileID: 1563751102619571335}
+  - {fileID: 1563751102619571339}
+  - {fileID: 1563751102619571341}
+  - {fileID: 1563751102619571343}
+  - {fileID: 1563751102619571391}
+  - {fileID: 1563751102619571351}
+  - {fileID: 1563751102619571379}
+  - {fileID: 1563751102619571377}
+  - {fileID: 1563751102619571409}
+  - {fileID: 1563751102619571411}
+  - {fileID: 1563751102619571453}
+  - {fileID: 1563751102619571449}
+  - {fileID: 1563751102619571395}
+  - {fileID: 1563751102619571415}
+  - {fileID: 1563751102619571393}
+  - {fileID: 1563751102619571413}
+  - {fileID: 1563751102619571375}
+  - {fileID: 1563751102619571405}
+  - {fileID: 1563751102619571383}
+  - {fileID: 1563751102619571347}
+  - {fileID: 1563751102619571345}
+  - {fileID: 1563751102619571337}
+  - {fileID: 1563751102619571359}
+  - {fileID: 1563751102619571443}
+  - {fileID: 1563751102619571447}
+  - {fileID: 1563751102619571399}
+  - {fileID: 1563751102619571455}
+  - {fileID: 1563751102619571381}
+  - {fileID: 1563751102619571371}
+  - {fileID: 1563751102619571365}
+  - {fileID: 1563751102619571419}
+  - {fileID: 1563751102619571423}
+  - {fileID: 1563751102619571417}
+  - {fileID: 1563751102619571369}
+  - {fileID: 1563751102619571373}
+  - {fileID: 1563751102619571403}
+  - {fileID: 1563751102619571397}
+  - {fileID: 1563751102619571401}
+  - {fileID: 1563751102619571451}
+  - {fileID: 1563751102619571407}
+  - {fileID: 1563751102619571441}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 1563751102619571335}
+  m_AABB:
+    m_Center: {x: 0.45597482, y: -0.09163737, z: -0.025593758}
+    m_Extent: {x: 2.964619, y: 4.3410263, z: 2.614964}
+  m_DirtyAABB: 0
+--- !u!1 &1563751102619601169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571441}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleUpperRight_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601169}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000022770638, y: -0.00000007066274, z: -0.29638103, w: 0.9550698}
+  m_LocalPosition: {x: -0.69423264, y: 0.00000015258789, z: -0.00000030517577}
+  m_LocalScale: {x: 0.9999999, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571447}
+  m_Father: {fileID: 1563751102619571443}
+  m_LocalEulerAnglesHint: {x: 1.3059895, y: 1.1402091, z: -56.58578}
+--- !u!1 &1563751102619601171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571443}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleUpperRight_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601171}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.77748466, y: 0.004838191, z: 0.08532418, w: 0.6230682}
+  m_LocalPosition: {x: -0.73032176, y: 0.05845291, z: -0.44944245}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 0.9999999}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571441}
+  m_Father: {fileID: 1563751102619571385}
+  m_LocalEulerAnglesHint: {x: 76.06755, y: -163.31279, z: -163.54147}
+--- !u!1 &1563751102619601173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571445}
+  m_Layer: 0
+  m_Name: root
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601173}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571355}
+  m_Father: {fileID: 1563751102619571435}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &1563751102619601175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571447}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleUpperRight_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601175}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000028917842, y: 0.00000017338593, z: -0.24283446, w: 0.97006774}
+  m_LocalPosition: {x: -0.5305088, y: -0.00000045776366, z: 0.00000030517577}
+  m_LocalScale: {x: 0.9999999, y: 0.99999994, z: 1.0000001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571441}
+  m_LocalEulerAnglesHint: {x: 0.23040146, y: -2.7205913, z: -70.58416}
+--- !u!1 &1563751102619601177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571449}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleUpperLeft_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571449
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.62306964, y: 0.085324876, z: 0.0048393034, w: 0.7774834}
+  m_LocalPosition: {x: -0.73024476, y: 0.05829277, z: 0.4494742}
+  m_LocalScale: {x: 1.0000001, y: 1.0000004, z: 0.99999994}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571455}
+  m_Father: {fileID: 1563751102619571333}
+  m_LocalEulerAnglesHint: {x: 73.15471, y: -34.5134, z: -32.236305}
+--- !u!1 &1563751102619601179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571451}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleMiddleRight_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601179}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0000005843081, y: 0.00000033664725, z: -0.25969124, w: 0.9656917}
+  m_LocalPosition: {x: -0.52207536, y: 0.000003967285, z: 0}
+  m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571397}
+  m_LocalEulerAnglesHint: {x: 0.30469087, y: -1.7691405, z: -84.02768}
+--- !u!1 &1563751102619601181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571453}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleUpperLeft_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601181}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.0000005204606, y: 0.000000115489684, z: 0.24283446, w: 0.97006774}
+  m_LocalPosition: {x: -0.53050894, y: 0.000000007599562, z: 9.380153e-10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1563751102619571455}
+  m_LocalEulerAnglesHint: {x: 0.044377554, y: 2.9289804, z: 69.23399}
+--- !u!1 &1563751102619601183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563751102619571455}
+  m_Layer: 0
+  m_Name: Hideoplast_MandibuleUpperLeft_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1563751102619571455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563751102619601183}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000004018423, y: -0.0000000129491236, z: 0.29638103, w: 0.9550698}
+  m_LocalPosition: {x: -0.69423294, y: 0.00000030249356, z: -0.00000007348639}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1563751102619571453}
+  m_Father: {fileID: 1563751102619571449}
+  m_LocalEulerAnglesHint: {x: 0.5128683, y: -0.5791444, z: 56.33738}
 --- !u!1 &9198429414450138133
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +2112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2807326691164141606}
   _animator: {fileID: 1563751102612323195}
+  closeTP: {fileID: 0}
 --- !u!114 &4234537357952275806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,93 +2127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pathController: {fileID: 2185383435016440210}
   playerDetector: {fileID: 4249670206546470916}
---- !u!1001 &5865250237940881842
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6353207420798801139}
-    m_Modifications:
-    - target: {fileID: 4960153498464871113, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474352827, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_Name
-      value: Hideoplast
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
---- !u!95 &1563751102612323195 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4960153498464871113, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-  m_PrefabInstance: {fileID: 5865250237940881842}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1563751102619571435 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4960153498474646873, guid: 2c7d2ca099d5e5e479456ba1ead0afe3, type: 3}
-  m_PrefabInstance: {fileID: 5865250237940881842}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7187774358647161013
 PrefabInstance:
   m_ObjectHideFlags: 0
