@@ -116,6 +116,7 @@ public class GameManager : MonoBehaviour
 
     public void StartNewPlaythrough()
     {
+        playerMovement.enabled = false;
         SoundManager.StopHeartbeat();
         SoundManager.StopParanoiaSounds();
 
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviour
         {
             DeathScreen();
         }
-
+        Invoke(nameof(ResumeAfterRestart), postRestartDelay);
         firstPlaythrough = false;
         
         ResetAllObjectsToOriginal();
@@ -135,7 +136,7 @@ public class GameManager : MonoBehaviour
 
         EnableObjects(activeTrapSet);
         EnableObjects(allMonsters);
-        Invoke(nameof(ResumeAfterRestart), postRestartDelay);
+        
     }
 
     private void ResumeAfterRestart()
@@ -144,7 +145,7 @@ public class GameManager : MonoBehaviour
 
         if (playerMovement != null)
         {
-            playerMovement.enabled = false;
+            playerMovement.enabled = true;
         }
     }
 

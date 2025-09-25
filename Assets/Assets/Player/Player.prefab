@@ -448,8 +448,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3591079122962268988}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.01, z: 0.69}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.26000008, y: 0.2600014, z: -4.8300014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -748,7 +748,7 @@ Transform:
   m_GameObject: {fileID: 7002802270489149085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.01, z: 0.69}
+  m_LocalPosition: {x: -0.26, y: 0.26, z: -4.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -970,6 +970,10 @@ MonoBehaviour:
   staminaRegenRate: 5
   sprintStaminaCost: 10
   jumpStaminaCost: 20
+  footstepTimer: 0
+  walkStepInterval: 0.6
+  runStepInterval: 0.4
+  hasGroundedBefore: 0
   isSlowed: 0
   hurtSpeedMultiplier: 0.5
   hurtDuration: 2
@@ -1030,8 +1034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7e69cf3a275eb44855370e3189f1ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 0}
-  player: {fileID: 8771252474096167117}
+  monsters: []
   maxHeartbeatDistance: 20
   minHeartbeatDistance: 3
   updateInterval: 0.1
@@ -1229,9 +1232,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4458582208594647851}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5751558351618544526}
   m_SourcePrefab: {fileID: 100100000, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
 --- !u!1 &1529544158354375011 stripped
 GameObject:
@@ -1251,21 +1251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _flashlight: {fileID: 3591079122962268988}
---- !u!114 &5751558351618544526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1529544158354375011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cdb890589e22e8458045d48e98ebbd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  revealedMaterials:
-  - {fileID: 2100000, guid: 296ddfce9252ddb42a071a6057757ebe, type: 2}
-  _UVlight: {fileID: 1360053335075366153}
 --- !u!4 &2193772960698653657 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b5e257b4d23c304e8f235910c9c1f47, type: 3}
