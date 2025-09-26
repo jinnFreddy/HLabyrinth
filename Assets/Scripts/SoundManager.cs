@@ -170,7 +170,7 @@ public class SoundManager : MonoBehaviour
 
             instance.sfxSource.PlayOneShot(clip, tempVolume);
 
-            float waitTime = UnityEngine.Random.Range(3f, 15f);
+            float waitTime = UnityEngine.Random.Range(5f, 18f);
             yield return new WaitForSeconds(waitTime);
         }
     }
