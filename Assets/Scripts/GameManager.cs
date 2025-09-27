@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("NewPlaythrough")]
+    [SerializeField] private Transform firstSpawnPoint;
+    [SerializeField] private float minParanoiaDelay = 10f;
+    [SerializeField] private float maxParanoiaDelay = 25f;
+
     [Header("Trap Sets")]
     [SerializeField] private List<GameObject> trapSetA = new List<GameObject>();
     [SerializeField] private List<GameObject> trapSetB = new List<GameObject>();
@@ -46,6 +51,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool enableOnStart = true;
     [SerializeField] private GameObject deathScreenPanel;
     [SerializeField] private Animator deathScreenAnimator;
+    [SerializeField] private Animator fadeInAnimator;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject mainTP;
     public PlayerMovement playerMovement;
@@ -124,9 +130,7 @@ public class GameManager : MonoBehaviour
         {
             DeathScreen();
         }
-        Invoke(nameof(ResumeAfterRestart), postRestartDelay);
-        firstPlaythrough = false;
-        
+
         ResetAllObjectsToOriginal();
         ResetTrapStates();
         DisableAllTraps();
@@ -136,13 +140,45 @@ public class GameManager : MonoBehaviour
 
         EnableObjects(activeTrapSet);
         EnableObjects(allMonsters);
-        
+
+        if (firstPlaythrough)
+        {
+            Invoke(nameof(SpawnAtFirstSpawnPoint), 0.05f);
+
+            fadeInAnimator.Play("FadeIn");
+ 
+            float delay = Random.Range(minParanoiaDelay, maxParanoiaDelay);
+            Invoke(nameof(StartParanoiaSounds), delay);
+            Invoke(nameof(ResumeAfterRestart), 1f);
+        }
+        else
+        {
+            Invoke(nameof(SpawnAtMainTP), 0.05f);
+            Invoke(nameof(ResumeAfterRestart), postRestartDelay);
+        }
+
+        firstPlaythrough = false;
+    }
+
+    private void SpawnAtFirstSpawnPoint()
+    {
+        if (firstSpawnPoint != null && player != null)
+        {
+            player.transform.SetPositionAndRotation(firstSpawnPoint.position, firstSpawnPoint.rotation);
+        }
+    }
+
+    private void SpawnAtMainTP()
+    {
+        if (mainTP != null && player != null)
+        {
+            player.transform.position = mainTP.transform.position;
+        }
     }
 
     private void ResumeAfterRestart()
     {
-        SoundManager.StartParanoiaSounds();
-
+        SoundManager.StartHeartbeat();
         if (playerMovement != null)
         {
             playerMovement.enabled = true;
@@ -171,7 +207,6 @@ public class GameManager : MonoBehaviour
                     {
                         wireTrap._isDisabled = false;
                         wireTrap.gameObject.SetActive(true);
-                        Debug.Log($"Reset wire trap: {wireTrap.name}");
                     }
                 }
             }
@@ -206,6 +241,11 @@ public class GameManager : MonoBehaviour
     public void RestartPlaythrough()
     {
         StartNewPlaythrough();
+    }
+
+    private void StartParanoiaSounds()
+    {
+        SoundManager.StartParanoiaSounds();
     }
 
     public void DeathScreen()

@@ -37,7 +37,6 @@ public class PlayerFear : MonoBehaviour
     private void Start()
     {
         SoundManager.StartHeartbeat();
-        SoundManager.StartParanoiaSounds();
         currentThreatDistance = maxHeartbeatDistance;
     }
 
@@ -84,11 +83,5 @@ public class PlayerFear : MonoBehaviour
     {
         SoundManager.StopHeartbeat();
         SoundManager.StopParanoiaSounds();
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, maxHeartbeatDistance);
     }
 }

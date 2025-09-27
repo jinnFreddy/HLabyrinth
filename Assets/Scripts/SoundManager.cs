@@ -12,7 +12,6 @@ public enum SoundType
     SENSE,
     PARANOIA,
     DEATH,
-    HURT,
     MWALK,
     MRUN,
     METALDOOR

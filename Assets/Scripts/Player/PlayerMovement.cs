@@ -5,59 +5,69 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public MovementState state;
-    public Transform orientation;
+    [SerializeField] private MovementState state;
+    [SerializeField] private Transform orientation;
 
     [Header("Movement")]
-    public float moveSpeed;
-    public float walkSpeed;
-    public float sprintSpeed;
-    public float groundDrag;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float walkSpeed;
+    [SerializeField] private float sprintSpeed;
+    [SerializeField] private float groundDrag;
 
     [Header("Jumping")]
-    public float jumpForce;
-    public float jumpCooldown;
-    public float airMultiplier;
-    bool readyToJump;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float jumpCooldown;
+    [SerializeField] private float airMultiplier;
+    private bool readyToJump;
 
     [Header("Crouching")]
-    public float crouchSpeed;
-    public float crouchYScale;
-    private float startYScale;
+    [SerializeField] private float crouchSpeed;
+    [SerializeField] private float crouchYScale;
+    [SerializeField] private float startYScale;
 
     [Header("Keybinds")]
-    public KeyCode jumpKey = KeyCode.Space;
-    public KeyCode sprintKey = KeyCode.LeftShift;
-    public KeyCode crouchKey = KeyCode.LeftControl;
+    [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
+    [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
 
     [Header("Ground Check")]
-    public float playerHeight;
-    public LayerMask isGround;
-    bool grounded;
+    [SerializeField] private float playerHeight;
+    [SerializeField] private LayerMask isGround;
+    private bool grounded;
 
     [Header("Slope Handling")]
-    public float maxSlopeAngle;
+    [SerializeField] private float maxSlopeAngle;
     private RaycastHit slopeHit;
     private bool exitingSlope;
 
     [Header("Stamina")]
-    public Image staminaBar;
-    public float stamina;
-    public float staminaMaximum;
-    public float staminaRegenRate;
-    public float sprintStaminaCost;
-    public float jumpStaminaCost;
+    [SerializeField] private Image staminaBar;
+    [SerializeField] private float stamina;
+    [SerializeField] private float staminaMaximum;
+    [SerializeField] private float staminaRegenRate;
+    [SerializeField] private float sprintStaminaCost;
+    [SerializeField] private float jumpStaminaCost;
+    [SerializeField] private bool isRecoveringFromSprint = false;
+    [SerializeField] private float minStaminaForSprint = 25f;
+    [SerializeField] private float staminaRecoveryDelay = 0.3f;
+    [SerializeField] private float recoveryTimer = 0f;
 
     [Header("Footsteps")]
-    public float footstepTimer = 0f;
-    public float walkStepInterval = 0.6f;
-    public float runStepInterval = 0.4f;
-    public bool hasGroundedBefore = false;
+    [SerializeField] private float footstepTimer = 0f;
+    [SerializeField] private float walkStepInterval = 0.6f;
+    [SerializeField] private float runStepInterval = 0.4f;
+    [SerializeField] private bool hasGroundedBefore = false;
 
     [Header("Hurt Condition")]
-    public bool isSlowed; 
-    public float hurtSpeedMultiplier;
-    public float hurtDuration;
+    [SerializeField] public bool isSlowed;
+    [SerializeField] private float hurtSpeedMultiplier;
+    [SerializeField] private float hurtDuration;
+    [SerializeField] private Material bloodiedMat;
+    [SerializeField] private float intensity = 0.5f;
+    [SerializeField] private float pulseSpeed = 3f;
+    [SerializeField] private float pulseAmount = 0.15f;
+    private float elapsed = 0f;
+    private Coroutine screenDamageTask;
 
     float horizontalInput;
     float verticalInput;
@@ -93,11 +103,17 @@ public class PlayerMovement : MonoBehaviour
         SpeedControl();
         StateHandler();
 
-        if (grounded && state != MovementState.sprinting)
+        if (grounded && (state != MovementState.sprinting))
         {
             stamina = Mathf.Min(stamina + staminaRegenRate * Time.deltaTime, staminaMaximum);
         }
+        else
+        {
+            recoveryTimer = 0f;
+        }
+
         staminaBar.fillAmount = stamina / staminaMaximum;
+
         if (isSlowed)
         {
             staminaBar.color = Color.red;
@@ -153,37 +169,42 @@ public class PlayerMovement : MonoBehaviour
 
     private void StateHandler()
     {
-        // Hurt
-        if (isSlowed)
-        {
-            if (Input.GetKey(crouchKey))
-            {
-                state = MovementState.crouching;
-                moveSpeed = crouchSpeed;
-            }
-            else
-            {
-                SoundManager.PlaySound(SoundType.HURT);
-                state = MovementState.walking; 
-                moveSpeed = walkSpeed * hurtSpeedMultiplier; 
-            }
-            return; 
-        }
+        moveSpeed = walkSpeed;
 
         // Crouching
         if (Input.GetKey(crouchKey))
         {
             state = MovementState.crouching;
             moveSpeed = crouchSpeed;
+            isRecoveringFromSprint = false;
+            return;
+        }
+
+        // Hurt
+        if (isSlowed)
+        {
+            state = MovementState.walking;
+            moveSpeed = walkSpeed * hurtSpeedMultiplier;
+            return;
         }
 
         // Sprinting
-        else if (grounded && Input.GetKey(sprintKey) && stamina > 0)
+        bool wantsToSprint = Input.GetKey(sprintKey);
+        bool hasEnoughStamina = stamina > minStaminaForSprint;
+        bool canSprint = wantsToSprint && !isRecoveringFromSprint && hasEnoughStamina;
+        if (canSprint)
         {
             state = MovementState.sprinting;
             moveSpeed = sprintSpeed;
+
             stamina -= sprintStaminaCost * Time.deltaTime;
+
             UpdateFootsteps(runStepInterval);
+
+            if (Input.GetKeyUp(sprintKey) && stamina <= minStaminaForSprint)
+            {
+                isRecoveringFromSprint = true;
+            }
         }
 
         // Walking
@@ -192,6 +213,14 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.walking;
             moveSpeed = walkSpeed;
             UpdateFootsteps(walkStepInterval);
+
+            if (isRecoveringFromSprint)
+            {
+                if (stamina >= minStaminaForSprint)
+                {
+                    isRecoveringFromSprint = false;
+                }
+            }
         }
 
         // Air
@@ -283,15 +312,64 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             isSlowed = true;
+            ScreenDamageEffect(intensity);
             StartCoroutine(Recover());
         }
         
+    }
+
+    void ScreenDamageEffect(float intensity)
+    {
+        if(screenDamageTask != null)
+        {
+            StopCoroutine(screenDamageTask);
+        }
+        screenDamageTask = StartCoroutine(screenDamage(intensity));
+    }
+
+    private IEnumerator screenDamage(float intensity)
+    {
+        var targetRadius = Remap(intensity, 0, 1, 0.4f, -0.15f);
+        var startRadius = 1f;
+
+        for (float t = 0; t < 0.3f; t += Time.deltaTime)
+        {
+            float progress = t / 0.3f;
+            float value = Mathf.Lerp(startRadius, targetRadius, progress);
+            bloodiedMat.SetFloat("_Vignette_radius", value);
+            yield return null;
+        }
+
+        while (elapsed < hurtDuration)
+        {
+            float pulse = Mathf.Sin(elapsed * pulseSpeed * Mathf.PI * 2) * pulseAmount;
+            float radius = targetRadius + pulse;
+            bloodiedMat.SetFloat("_Vignette_radius", radius);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        for (float t = 0; t < 0.4f; t += Time.deltaTime)
+        {
+            float progress = t / 0.4f;
+            float value = Mathf.Lerp(targetRadius, startRadius, progress);
+            bloodiedMat.SetFloat("_Vignette_radius", value);
+            yield return null;
+        }
+
+        bloodiedMat.SetFloat("_Vignette_radius", 1f);
     }
 
     IEnumerator Recover()
     {
         yield return new WaitForSeconds(hurtDuration);
         isSlowed = false;
+    }
+
+    private float Remap(float value, float fromMin, float fromMax, float toMin, float toMax)
+    {
+        return Mathf.Lerp(toMin, toMax, Mathf.InverseLerp(fromMin, fromMax, value));
     }
 
     private void KillPlayer()
@@ -318,6 +396,10 @@ public class PlayerMovement : MonoBehaviour
             if (state == MovementState.sprinting)
             {
                 SoundManager.PlaySoundWithPitch(SoundType.RUN, volume: 1f, pitch: 1.4f);
+            }
+            else if (state == MovementState.crouching)
+            {
+                SoundManager.PlaySoundWithPitch(SoundType.WALK, volume: .7f, pitch: .6f);
             }
             else
             {
