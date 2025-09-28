@@ -50,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool isRecoveringFromSprint = false;
     [SerializeField] private float minStaminaForSprint = 25f;
     [SerializeField] private float staminaRecoveryDelay = 0.3f;
-    [SerializeField] private float recoveryTimer = 0f;
 
     [Header("Footsteps")]
     [SerializeField] private float footstepTimer = 0f;
@@ -67,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float pulseSpeed = 3f;
     [SerializeField] private float pulseAmount = 0.15f;
     private float elapsed = 0f;
+    private float recoveryDelayTimer = 0f;
     private Coroutine screenDamageTask;
 
     float horizontalInput;
@@ -105,19 +105,26 @@ public class PlayerMovement : MonoBehaviour
 
         if (grounded && (state != MovementState.sprinting))
         {
-            stamina = Mathf.Min(stamina + staminaRegenRate * Time.deltaTime, staminaMaximum);
+            recoveryDelayTimer += Time.deltaTime;
+            if (recoveryDelayTimer > staminaRecoveryDelay)
+            {
+                stamina = Mathf.Min(stamina + staminaRegenRate * Time.deltaTime, staminaMaximum);
+            }
         }
         else
         {
-            recoveryTimer = 0f;
+            recoveryDelayTimer = 0;
         }
 
-        staminaBar.fillAmount = stamina / staminaMaximum;
+            staminaBar.fillAmount = stamina / staminaMaximum;
 
         if (isSlowed)
         {
             staminaBar.color = Color.red;
-            stamina = staminaMaximum;
+        }
+        else if (isRecoveringFromSprint)
+        {
+            staminaBar.color = Color.yellow;
         }
         else
         {
@@ -176,7 +183,6 @@ public class PlayerMovement : MonoBehaviour
         {
             state = MovementState.crouching;
             moveSpeed = crouchSpeed;
-            isRecoveringFromSprint = false;
             return;
         }
 
@@ -201,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
 
             UpdateFootsteps(runStepInterval);
 
-            if (Input.GetKeyUp(sprintKey) && stamina <= minStaminaForSprint)
+            if (stamina <= minStaminaForSprint)
             {
                 isRecoveringFromSprint = true;
             }
@@ -216,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (isRecoveringFromSprint)
             {
-                if (stamina >= minStaminaForSprint)
+                if (stamina >= staminaMaximum * 0.8f)
                 {
                     isRecoveringFromSprint = false;
                 }
@@ -227,6 +233,10 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             state = MovementState.air;
+            if (stamina <= minStaminaForSprint)
+            {
+                isRecoveringFromSprint = true;
+            }
         }
     }
 
