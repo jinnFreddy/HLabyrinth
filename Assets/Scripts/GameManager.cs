@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject mainTP;
     public PlayerMovement playerMovement;
     public float postRestartDelay = 5f;
+    public bool isDead { get; set; } = false;
 
     private List<List<GameObject>> allTrapSets = new List<List<GameObject>>();
     private List<GameObject> activeTrapSet;
@@ -90,6 +91,7 @@ public class GameManager : MonoBehaviour
         if (enableOnStart)
         {
             StartNewPlaythrough();
+            isDead = false;
         }
     }
 
@@ -156,7 +158,7 @@ public class GameManager : MonoBehaviour
             Invoke(nameof(SpawnAtMainTP), 0.05f);
             Invoke(nameof(ResumeAfterRestart), postRestartDelay);
         }
-
+        SoundManager.Unmute();
         firstPlaythrough = false;
     }
 
@@ -250,14 +252,25 @@ public class GameManager : MonoBehaviour
 
     public void DeathScreen()
     {
-        if (deathScreenPanel != null)
-        {
-            deathScreenPanel.SetActive(true);
-        }
+        if (isDead) return;
+        isDead = true;
 
-        if (deathScreenAnimator != null)
-        {
-            deathScreenAnimator.Play("DeathScreen"); 
-        }
+        SoundManager.BlockNonDeathSounds();
+        SoundManager.PlaySoundWithPitch(SoundType.DEATH, 1f);
+
+        deathScreenPanel.SetActive(true);
+        deathScreenAnimator.Play("DeathScreen", 0, 0f);
+    }
+
+    public void DeathScreenPlatforming()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        SoundManager.BlockNonDeathSounds();
+        SoundManager.PlaySoundWithPitch(SoundType.DEATH, 1f);
+
+        deathScreenPanel.SetActive(true);
+        deathScreenAnimator.Play("DeathScreen2", 0, 0f);
     }
 }

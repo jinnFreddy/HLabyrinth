@@ -14,7 +14,9 @@ public enum SoundType
     DEATH,
     MWALK,
     MRUN,
-    METALDOOR
+    METALDOOR,
+    PTREMBLE,
+    PFALL
 }
 
 [Serializable]
@@ -33,6 +35,7 @@ public class SoundManager : MonoBehaviour
     private AudioSource sfxSource;
     private AudioSource heartbeatSource;
     private Coroutine paranoiaLoopCoroutine;
+    private static bool _blockGameplaySounds = false;
 
     private void Awake()
     {
@@ -58,6 +61,8 @@ public class SoundManager : MonoBehaviour
 
     public static void PlaySound(SoundType sound, float volume = 1)
     {
+        if (_blockGameplaySounds && sound != SoundType.DEATH) return;
+
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
 
@@ -67,6 +72,7 @@ public class SoundManager : MonoBehaviour
 
     public static void PlaySpatialSound(SoundType sound, Vector3 position, float volume = 1f, float maxDistance = 20f)
     {
+        if (_blockGameplaySounds && sound != SoundType.DEATH) return;
 
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
         AudioClip clip = clips[UnityEngine.Random.Range(0, clips.Length)];
@@ -88,11 +94,25 @@ public class SoundManager : MonoBehaviour
 
     public static void PlaySoundWithPitch(SoundType sound, float volume = 1f, float pitch = 1f)
     {
+        if (GameManager.Instance.isDead && sound != SoundType.DEATH)
+        {
+            return;
+        }
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
         AudioClip clip = clips[UnityEngine.Random.Range(0, clips.Length)];
 
         instance.sfxSource.pitch = pitch;
         instance.sfxSource.PlayOneShot(clip, volume);
+    }
+
+    public static void BlockNonDeathSounds()
+    {
+        _blockGameplaySounds = true;
+    }
+
+    public static void Unmute()
+    {
+        _blockGameplaySounds = false;
     }
 
     public static void StartHeartbeat()

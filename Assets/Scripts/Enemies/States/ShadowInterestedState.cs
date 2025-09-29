@@ -5,9 +5,9 @@ public class ShadowInterestedState: ShadowFSMState
     private readonly int patrolRadius = 2;
     private readonly int playerDetectionRadius = 30;
     private readonly int moveSpeed = 2;
-    private float lookTime = 0f; // Timer to track how long players are looking
-    private bool isBeingLookedAt = false; // Flag to determine if any player is looking
-    private const float timeThreshold = 2f; // Threshold to determine the next Bracken state
+    private float lookTime = 0f; 
+    private bool isBeingLookedAt = false; 
+    private const float timeThreshold = 1f;
     private Transform currentTarget;
 
     public ShadowInterestedState(Shadow shadow): base(shadow)

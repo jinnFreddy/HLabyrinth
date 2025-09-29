@@ -5,6 +5,7 @@ public class BreakApart : MonoBehaviour
 {
     [Header("Settings")]
     [SerializeField] public GameObject intactPillar;
+    [SerializeField] private Transform visualPillar;
     [SerializeField] public GameObject brokenPillarPrefab;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private float minPieceDelay;
@@ -37,10 +38,7 @@ public class BreakApart : MonoBehaviour
 
     private IEnumerator TriggerCollapseWithWarning()
     {
-        //if (warningSound != null)
-        //{
-        //    AudioSource.PlayClipAtPoint(warningSound, transform.position);
-        //}
+        SoundManager.PlaySound(SoundType.PTREMBLE, 0.5f);
 
         isWarning = true;
         hasBroken = true;
@@ -55,7 +53,7 @@ public class BreakApart : MonoBehaviour
                 Mathf.PerlinNoise(Time.time * trembleSpeed, 2)
             ) * trembleIntensity;
 
-            intactPillar.transform.position = originalPosition + tremble;
+            visualPillar.localPosition = tremble;
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -76,7 +74,8 @@ public class BreakApart : MonoBehaviour
 
             foreach (var piece in debrisPieces)
             {
-                float randomDelay = UnityEngine.Random.Range(minPieceDelay, maxPieceDelay);
+                float randomDelay = Random.Range(minPieceDelay, maxPieceDelay);
+                SoundManager.PlaySound(SoundType.PFALL, .5f);
                 piece.ActivatePiece(randomDelay);
             }
         }

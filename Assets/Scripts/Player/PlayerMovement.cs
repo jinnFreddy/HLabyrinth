@@ -20,10 +20,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float airMultiplier;
     private bool readyToJump;
 
-    [Header("Crouching")]
-    [SerializeField] private float crouchSpeed;
-    [SerializeField] private float crouchYScale;
-    [SerializeField] private float startYScale;
+    //[Header("Crouching")]
+    //[SerializeField] private float crouchSpeed;
+    //[SerializeField] private float crouchYScale;
+    //[SerializeField] private float startYScale;
 
     [Header("Keybinds")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
-        startYScale = transform.localScale.y;
+        //startYScale = transform.localScale.y;
         stamina = staminaMaximum;
         staminaBar.color = Color.cyan;
         isSlowed = false;
@@ -97,8 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, isGround);
-
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, isGround);
         MyInput();
         SpeedControl();
         StateHandler();
@@ -130,15 +129,15 @@ public class PlayerMovement : MonoBehaviour
         {
             staminaBar.color = Color.cyan;
         }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            if (isSlowed) isSlowed = false;
-            else if (!isSlowed) isSlowed = true;
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            GameManager.Instance.RestartPlaythrough();
-        }
+        //if (Input.GetKeyDown(KeyCode.H))
+        //{
+        //    if (isSlowed) isSlowed = false;
+        //    else if (!isSlowed) isSlowed = true;
+        //}
+        //if (Input.GetKeyDown(KeyCode.K))
+        //{
+        //    GameManager.Instance.RestartPlaythrough();
+        //}
 
         if (grounded) rb.linearDamping = groundDrag;
         else rb.linearDamping = 0;
@@ -162,16 +161,16 @@ public class PlayerMovement : MonoBehaviour
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-        if (grounded && Input.GetKeyDown(crouchKey))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
-        }
+        //if (grounded && Input.GetKeyDown(crouchKey))
+        //{
+        //    transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+        //    rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        //}
 
-        if (Input.GetKeyUp(crouchKey))
-        {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
-        }
+        //if (Input.GetKeyUp(crouchKey))
+        //{
+        //    transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+        //}
     }
 
     private void StateHandler()
@@ -179,12 +178,12 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = walkSpeed;
 
         // Crouching
-        if (Input.GetKey(crouchKey))
-        {
-            state = MovementState.crouching;
-            moveSpeed = crouchSpeed;
-            return;
-        }
+        //if (Input.GetKey(crouchKey))
+        //{
+        //    state = MovementState.crouching;
+        //    moveSpeed = crouchSpeed;
+        //    return;
+        //}
 
         // Hurt
         if (isSlowed)
@@ -287,8 +286,8 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         exitingSlope = true;
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+        Vector3 horizontalVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        rb.linearVelocity = horizontalVel + transform.up * jumpForce;
     }
 
     private void ResetJump()
