@@ -13,24 +13,11 @@ public class FogPlaneConstraint : MonoBehaviour
     private bool _isRespawning = false;
     private bool _wasAboveLastFrame = true;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        bool isAbove = player.transform.position.y >= fogPlane.transform.position.y;
-        if (!_isRespawning && _wasAboveLastFrame && !isAbove)
-        {
-            _isRespawning = true;
-            _wasAboveLastFrame = false;
-            StartCoroutine(DelayedRespawn());
-        }
-        else if (isAbove)
-        {
-            _wasAboveLastFrame = true;
-        }
-        else
-        {
-            _wasAboveLastFrame = false;
-        }
+        if (_isRespawning || !other.CompareTag("Player")) return;
+
+        StartCoroutine(DelayedRespawn());
     }
 
     private IEnumerator DelayedRespawn()

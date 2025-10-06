@@ -12,6 +12,7 @@ public class DisablingTraps : MonoBehaviour
 
     private WireTrap _currentTrap = null;
     private float _progress = 0f;
+    private bool hasStartedDisabling = false;
 
     // Update is called once per frame
     void Update()
@@ -25,8 +26,11 @@ public class DisablingTraps : MonoBehaviour
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+        Debug.DrawRay(ray.origin, ray.direction * _maxDistance, Color.green);
+
         if (Physics.Raycast(ray, out hit, _maxDistance, _trapMask))
         {
+
             CrosshairManager.Instance?.SetInteractingCrosshair();
             WireTrap trap = hit.collider.GetComponentInChildren<WireTrap>();
             if (trap != null && !trap._isDisabled)
@@ -45,14 +49,13 @@ public class DisablingTraps : MonoBehaviour
     {
         if (_currentTrap == null || !HasWirecutterEquipped() || !Input.GetKey(KeyCode.E))
         {
-            _progress = 0f;
-            if (_progressBar) _progressBar.fillAmount = 0f;
+            ResetDisabling();
             return;
         }
 
         if (IsPlayerMoving())
         {
-            _progress = 0f;
+            ResetDisabling();
             return;
         }
 
@@ -60,22 +63,35 @@ public class DisablingTraps : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out hit, _maxDistance, _trapMask) || hit.collider.GetComponentInChildren<WireTrap>() != _currentTrap)
         {
-            _progress = 0f;
+            ResetDisabling();
             return;
         }
-        SoundManager.PlaySound(SoundType.DISABLE, 1f);
+
+        if (!hasStartedDisabling)
+        {
+            SoundManager.PlayDisableStart();
+            hasStartedDisabling = true;
+        }
+
         _progress += Time.deltaTime / _disableTime;
         if (_progress >= 1f)
         {
             _currentTrap.Disable();
             CrosshairManager.Instance?.SetNormalCrosshair();
-            _progress = 0f;
-            if (_progressBar) _progressBar.fillAmount = 0f;
+            ResetDisabling();
         }
         else
         {
             if (_progressBar) _progressBar.fillAmount = _progress;
         }
+    }
+
+    private void ResetDisabling()
+    {
+        SoundManager.StopDisableSound();
+        _progress = 0f;
+        if (_progressBar) _progressBar.fillAmount = 0f;
+        hasStartedDisabling = false;
     }
 
     bool HasWirecutterEquipped()

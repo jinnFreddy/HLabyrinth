@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class GOState
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator fadeInAnimator;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject mainTP;
+    [SerializeField] private GameObject[] deathMessages;
     public PlayerMovement playerMovement;
     public float postRestartDelay = 5f;
     public bool isDead { get; set; } = false;
@@ -79,7 +81,11 @@ public class GameManager : MonoBehaviour
 
         if (deathScreenPanel != null)
         {
-            deathScreenPanel.SetActive(false);
+            foreach (GameObject msg in deathMessages)
+            {
+                if (msg != null)
+                    msg.SetActive(false);
+            }
         }
 
         allTrapSets.Add(trapSetA);
@@ -128,6 +134,22 @@ public class GameManager : MonoBehaviour
         SoundManager.StopHeartbeat();
         SoundManager.StopParanoiaSounds();
 
+        if (firstPlaythrough)
+        {
+            Invoke(nameof(SpawnAtFirstSpawnPoint), 0.05f);
+
+            fadeInAnimator.Play("FadeIn");
+
+            float delay = Random.Range(minParanoiaDelay, maxParanoiaDelay);
+            Invoke(nameof(StartParanoiaSounds), delay);
+            Invoke(nameof(ResumeAfterRestart), 1f);
+        }
+        else
+        {
+            Invoke(nameof(SpawnAtMainTP), 0.05f);
+            Invoke(nameof(ResumeAfterRestart), postRestartDelay);
+        }
+
         if (!firstPlaythrough)
         {
             DeathScreen();
@@ -138,26 +160,13 @@ public class GameManager : MonoBehaviour
         DisableAllTraps();
 
         int randomIndex = Random.Range(0, allTrapSets.Count);
-        activeTrapSet = allTrapSets[randomIndex];
+        activeTrapSet = allTrapSets[randomIndex];        
+
+        
 
         EnableObjects(activeTrapSet);
         EnableObjects(allMonsters);
 
-        if (firstPlaythrough)
-        {
-            Invoke(nameof(SpawnAtFirstSpawnPoint), 0.05f);
-
-            fadeInAnimator.Play("FadeIn");
- 
-            float delay = Random.Range(minParanoiaDelay, maxParanoiaDelay);
-            Invoke(nameof(StartParanoiaSounds), delay);
-            Invoke(nameof(ResumeAfterRestart), 1f);
-        }
-        else
-        {
-            Invoke(nameof(SpawnAtMainTP), 0.05f);
-            Invoke(nameof(ResumeAfterRestart), postRestartDelay);
-        }
         SoundManager.Unmute();
         firstPlaythrough = false;
     }
@@ -257,9 +266,11 @@ public class GameManager : MonoBehaviour
 
         SoundManager.BlockNonDeathSounds();
         SoundManager.PlaySoundWithPitch(SoundType.DEATH, 1f);
-
+        
         deathScreenPanel.SetActive(true);
+        YouDiedMessage();
         deathScreenAnimator.Play("DeathScreen", 0, 0f);
+        
     }
 
     public void DeathScreenPlatforming()
@@ -271,6 +282,30 @@ public class GameManager : MonoBehaviour
         SoundManager.PlaySoundWithPitch(SoundType.DEATH, 1f);
 
         deathScreenPanel.SetActive(true);
+        YouDiedMessage();
         deathScreenAnimator.Play("DeathScreen2", 0, 0f);
+    }
+
+    private void YouDiedMessage()
+    {
+        if (deathScreenPanel != null)
+        {
+            foreach (GameObject msg in deathMessages)
+            {
+                if (msg != null)
+                    msg.SetActive(false);
+            }
+        }
+
+        if (deathMessages.Length > 0)
+        {
+            int randomIndex = Random.Range(0, deathMessages.Length);
+            GameObject selectedMessage = deathMessages[randomIndex];
+
+            if (selectedMessage != null)
+            {
+                selectedMessage.SetActive(true);                
+            }
+        }
     }
 }

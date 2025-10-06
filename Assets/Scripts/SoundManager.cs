@@ -34,6 +34,7 @@ public class SoundManager : MonoBehaviour
     private static SoundManager instance;
     private AudioSource sfxSource;
     private AudioSource heartbeatSource;
+    private AudioSource disableSource;
     private Coroutine paranoiaLoopCoroutine;
     private static bool _blockGameplaySounds = false;
 
@@ -41,25 +42,35 @@ public class SoundManager : MonoBehaviour
     {
         instance = this;
 
-        var hbsources = GetComponents<AudioSource>();
+        var sources = GetComponents<AudioSource>();
+        var dsource = GetComponents<AudioSource>();
         sfxSource = GetComponent<AudioSource>();
 
-        if (hbsources.Length < 2)
+        if (sources.Length < 2)
         {
             heartbeatSource = gameObject.AddComponent<AudioSource>();
         }
         else
         {
-            heartbeatSource = hbsources[1];
+            heartbeatSource = sources[1];
         }
 
         heartbeatSource.playOnAwake = false;
         heartbeatSource.loop = true;
         heartbeatSource.clip = null;
+
+        if (sources.Length < 3)
+        {
+            disableSource = gameObject.AddComponent<AudioSource>();
+        }
+        else
+        {
+            disableSource = sources[2];
+        }
     }
 
 
-    public static void PlaySound(SoundType sound, float volume = 1)
+    public static void PlaySound(SoundType sound, float volume = .7f)
     {
         if (_blockGameplaySounds && sound != SoundType.DEATH) return;
 
@@ -70,7 +81,7 @@ public class SoundManager : MonoBehaviour
         instance.sfxSource.PlayOneShot(randomClip, volume);
     }
 
-    public static void PlaySpatialSound(SoundType sound, Vector3 position, float volume = 1f, float maxDistance = 20f)
+    public static void PlaySpatialSound(SoundType sound, Vector3 position, float volume = .7f, float maxDistance = 20f)
     {
         if (_blockGameplaySounds && sound != SoundType.DEATH) return;
 
@@ -92,7 +103,7 @@ public class SoundManager : MonoBehaviour
         Destroy(go, clip.length);
     }
 
-    public static void PlaySoundWithPitch(SoundType sound, float volume = 1f, float pitch = 1f)
+    public static void PlaySoundWithPitch(SoundType sound, float volume = .7f, float pitch = 1f)
     {
         if (GameManager.Instance.isDead && sound != SoundType.DEATH)
         {
@@ -189,8 +200,30 @@ public class SoundManager : MonoBehaviour
 
             instance.sfxSource.PlayOneShot(clip, tempVolume);
 
-            float waitTime = UnityEngine.Random.Range(5f, 18f);
+            float waitTime = UnityEngine.Random.Range(15f, 35f);
             yield return new WaitForSeconds(waitTime);
+        }
+    }
+
+    public static void PlayDisableStart()
+    {
+        if (instance == null) return;
+
+        SoundList disableList = instance.soundList[(int)SoundType.DISABLE];
+        if (disableList.Sounds.Length == 0) return;
+
+        AudioClip clip = disableList.Sounds[0];
+        instance.disableSource.clip = clip;
+        instance.disableSource.volume = 0.7f;
+        instance.disableSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        instance.disableSource.Play();
+    }
+
+    public static void StopDisableSound()
+    {
+        if (instance != null && instance.disableSource.isPlaying)
+        {
+            instance.disableSource.Stop();
         }
     }
 
