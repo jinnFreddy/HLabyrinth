@@ -11,7 +11,6 @@ public class FogPlaneConstraint : MonoBehaviour
     [SerializeField] private float respawnDelay;
 
     private bool _isRespawning = false;
-    private bool _wasAboveLastFrame = true;
 
     private void OnTriggerEnter(Collider other)
     {

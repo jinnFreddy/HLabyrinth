@@ -118,8 +118,8 @@ public class ShadowPathControllerNM : MonoBehaviour
         _animator.SetBool("Attack", false);
     }
 
-    public Vector3 GetTPposition()
+    public void GetTPposition()
     {
-        return closeTP.transform.position;
+        GameManager.Instance.teleporter = closeTP;
     }
 }

@@ -43,32 +43,46 @@ public class SoundManager : MonoBehaviour
         instance = this;
 
         var sources = GetComponents<AudioSource>();
-        var dsource = GetComponents<AudioSource>();
+        Debug.Log($"Found {sources.Length} AudioSources");
+
+        
         sfxSource = GetComponent<AudioSource>();
 
-        if (sources.Length < 2)
+        RebuildHeartbeatSource();
+
+        if (sources.Length >= 3)
         {
-            heartbeatSource = gameObject.AddComponent<AudioSource>();
+            disableSource = sources[2];
         }
         else
         {
-            heartbeatSource = sources[1];
+            disableSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        for (int i = 0; i < sources.Length; i++)
+        {
+            Debug.Log($"Source {i}: {sources[i].name ?? "Unnamed"} | Clip: {sources[i].clip?.name}");
         }
 
         heartbeatSource.playOnAwake = false;
         heartbeatSource.loop = true;
         heartbeatSource.clip = null;
-
-        if (sources.Length < 3)
-        {
-            disableSource = gameObject.AddComponent<AudioSource>();
-        }
-        else
-        {
-            disableSource = sources[2];
-        }
     }
 
+    private void RebuildHeartbeatSource()
+    {
+        if (heartbeatSource != null)
+        {
+            DestroyImmediate(heartbeatSource);
+        }
+
+        heartbeatSource = gameObject.AddComponent<AudioSource>();
+        heartbeatSource.playOnAwake = false;
+        heartbeatSource.loop = true;
+        heartbeatSource.clip = null;
+        heartbeatSource.volume = 1f;
+        heartbeatSource.pitch = 1f;
+    }
 
     public static void PlaySound(SoundType sound, float volume = .7f)
     {
@@ -77,7 +91,7 @@ public class SoundManager : MonoBehaviour
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
 
-        instance.sfxSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+        instance.sfxSource.pitch = UnityEngine.Random.Range(0.98f, 1.02f);
         instance.sfxSource.PlayOneShot(randomClip, volume);
     }
 
@@ -88,7 +102,6 @@ public class SoundManager : MonoBehaviour
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
         AudioClip clip = clips[UnityEngine.Random.Range(0, clips.Length)];
 
-        //AudioSource.PlayClipAtPoint(clip, position, volume);
         GameObject go = new GameObject("OneShotAudio");
         go.transform.position = position;
 
@@ -98,14 +111,14 @@ public class SoundManager : MonoBehaviour
         source.spatialBlend = 1f;
         source.maxDistance = maxDistance;
         source.rolloffMode = AudioRolloffMode.Logarithmic; 
-        source.dopplerLevel = 0f; 
+        source.dopplerLevel = 0f;
         source.Play();
         Destroy(go, clip.length);
     }
 
     public static void PlaySoundWithPitch(SoundType sound, float volume = .7f, float pitch = 1f)
     {
-        if (GameManager.Instance.isDead && sound != SoundType.DEATH)
+        if (GameManager.Instance != null && GameManager.Instance.isDead && sound != SoundType.DEATH)
         {
             return;
         }
@@ -131,12 +144,15 @@ public class SoundManager : MonoBehaviour
         if (instance == null) return;
 
         SoundList heartbeatList = instance.soundList[(int)SoundType.SENSE];
-        if (heartbeatList.Sounds.Length == 0) return;
+        if (heartbeatList.Sounds.Length == 0 || heartbeatList.Sounds[0] == null)
+        {
+            return;
+        }
 
-        AudioClip clip = heartbeatList.Sounds[0]; 
-        instance.heartbeatSource.clip = clip;
+        instance.heartbeatSource.clip = heartbeatList.Sounds[0];
+        instance.heartbeatSource.playOnAwake = true;
         instance.heartbeatSource.loop = true;
-        instance.heartbeatSource.volume = 0.1f;
+        instance.heartbeatSource.volume = 1f;
         instance.heartbeatSource.pitch = 1f;
         instance.heartbeatSource.Play();
     }
@@ -151,7 +167,7 @@ public class SoundManager : MonoBehaviour
         float distance,
         float minDistance = 3f,
         float maxDistance = 20f,
-        float minVolume = 0.1f,
+        float minVolume = 0.4f,
         float maxVolume = 1f,
         float minPitch = 1f,
         float maxPitch = 2f)
@@ -195,7 +211,7 @@ public class SoundManager : MonoBehaviour
 
             AudioClip clip = clips[UnityEngine.Random.Range(0, clips.Length)];
 
-            instance.sfxSource.pitch = UnityEngine.Random.Range(0.95f, 1.05f);
+            instance.sfxSource.pitch = UnityEngine.Random.Range(0.98f, 1.02f);
             float tempVolume = UnityEngine.Random.Range(0.6f, 0.8f); 
 
             instance.sfxSource.PlayOneShot(clip, tempVolume);

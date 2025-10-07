@@ -48,9 +48,7 @@ public class StatueAI : MonoBehaviour
 
             if (distanceToPlayer <= deathDistance)
             {
-                currentTarget.transform.position = closeTP.transform.position;
-                HandlePlayerDeath();
-                
+                HandlePlayerDeath();                
             }
         }
     }
@@ -139,6 +137,7 @@ public class StatueAI : MonoBehaviour
 
     private void HandlePlayerDeath()
     {
+        GameManager.Instance.teleporter = closeTP;
         GameManager.Instance.StartNewPlaythrough();
     }
 }

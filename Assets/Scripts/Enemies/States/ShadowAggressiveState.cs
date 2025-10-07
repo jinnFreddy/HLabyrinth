@@ -93,7 +93,7 @@ public class ShadowAggressiveState : ShadowFSMState
 
             if (currentTarget != null)
             {
-                currentTarget.position = _shadow.pathController.GetTPposition();
+                _shadow.pathController.GetTPposition();
             }
 
             GameManager.Instance.StartNewPlaythrough();

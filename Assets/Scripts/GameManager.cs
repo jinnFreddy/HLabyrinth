@@ -58,6 +58,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject[] deathMessages;
     public PlayerMovement playerMovement;
     public float postRestartDelay = 5f;
+    public GameObject teleporter;
     public bool isDead { get; set; } = false;
 
     private List<List<GameObject>> allTrapSets = new List<List<GameObject>>();
@@ -134,6 +135,11 @@ public class GameManager : MonoBehaviour
         SoundManager.StopHeartbeat();
         SoundManager.StopParanoiaSounds();
 
+        if (!firstPlaythrough)
+        {
+            DeathScreen();
+        }        
+
         if (firstPlaythrough)
         {
             Invoke(nameof(SpawnAtFirstSpawnPoint), 0.05f);
@@ -146,13 +152,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Invoke(nameof(SpawnAtMainTP), 0.05f);
+            Invoke(nameof(SpawnAtTP), 0.05f);
             Invoke(nameof(ResumeAfterRestart), postRestartDelay);
-        }
-
-        if (!firstPlaythrough)
-        {
-            DeathScreen();
         }
 
         ResetAllObjectsToOriginal();
@@ -160,9 +161,7 @@ public class GameManager : MonoBehaviour
         DisableAllTraps();
 
         int randomIndex = Random.Range(0, allTrapSets.Count);
-        activeTrapSet = allTrapSets[randomIndex];        
-
-        
+        activeTrapSet = allTrapSets[randomIndex];
 
         EnableObjects(activeTrapSet);
         EnableObjects(allMonsters);
@@ -179,16 +178,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SpawnAtMainTP()
+    private void SpawnAtTP()
     {
         if (mainTP != null && player != null)
         {
-            player.transform.position = mainTP.transform.position;
+            player.transform.position = teleporter.transform.position;
         }
     }
 
     private void ResumeAfterRestart()
     {
+        isDead = false;
         SoundManager.StartHeartbeat();
         if (playerMovement != null)
         {
