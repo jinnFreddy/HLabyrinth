@@ -1004,7 +1004,7 @@ GameObject:
   - component: {fileID: 759801467}
   - component: {fileID: 759801466}
   - component: {fileID: 759801465}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: Handle  (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   _player: {fileID: 1157778295}
   _mirrorHandle: {fileID: 759801463}
   _playerOrientation: {fileID: 539843794}
-  _initialPosition: {fileID: 284390474}
+  _initialParent: {fileID: 284390474}
   _playerCam: {fileID: 1744840153}
 --- !u!65 &759801466
 BoxCollider:
@@ -1476,6 +1476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intactPillar: {fileID: 144671672}
+  visualPillar: {fileID: 0}
   brokenPillarPrefab: {fileID: 2096706424411436975, guid: 837eee09d3dcc3a41a59d44ee585a82a, type: 3}
   spawnPoint: {fileID: 1715074006}
   minPieceDelay: 1
@@ -1919,7 +1920,7 @@ MonoBehaviour:
   _player: {fileID: 1157778295}
   _mirrorHandle: {fileID: 1980875789}
   _playerOrientation: {fileID: 539843794}
-  _initialPosition: {fileID: 284390474}
+  _initialParent: {fileID: 284390474}
   _playerCam: {fileID: 1744840153}
 --- !u!4 &1984349813 stripped
 Transform:
@@ -2154,7 +2155,7 @@ PrefabInstance:
       objectReference: {fileID: 1843162338}
     - target: {fileID: 8771252474096167117, guid: 6f6fe49af5223204095d63f69dddd23a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.49
+      value: -30.2
       objectReference: {fileID: 0}
     - target: {fileID: 8771252474096167117, guid: 6f6fe49af5223204095d63f69dddd23a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2162,7 +2163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8771252474096167117, guid: 6f6fe49af5223204095d63f69dddd23a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -50.63
+      value: -14.2
       objectReference: {fileID: 0}
     - target: {fileID: 8771252474096167117, guid: 6f6fe49af5223204095d63f69dddd23a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2449,7 +2450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7108085442560660366, guid: ba17faa9c79d4ad41b39a4578d455b4b, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8357983764775861656, guid: ba17faa9c79d4ad41b39a4578d455b4b, type: 3}
       propertyPath: m_Name

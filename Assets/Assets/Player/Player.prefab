@@ -237,7 +237,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100344241911736328}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -247,7 +247,8 @@ Transform:
   - {fileID: 2193772960698653657}
   - {fileID: 8451191122126579297}
   - {fileID: 875152097010940028}
-  m_Father: {fileID: 3737889737279047633}
+  - {fileID: 303008630286140386}
+  m_Father: {fileID: 5311689624216043708}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &460449842961890205
 Camera:
@@ -544,6 +545,37 @@ Transform:
   - {fileID: 6805525005403382397}
   m_Father: {fileID: 8771252474096167117}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3121483989887128639
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 303008630286140386}
+  m_Layer: 16
+  m_Name: PickUpPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &303008630286140386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3121483989887128639}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7158931532670437075}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3591079122962268988
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +731,7 @@ Transform:
   m_Children:
   - {fileID: 1314135366320867386}
   - {fileID: 8474348345065684986}
+  - {fileID: 7158931532670437075}
   m_Father: {fileID: 3737889737279047633}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &3981603472338211824
@@ -1133,9 +1166,6 @@ MonoBehaviour:
   jumpForce: 5.5
   jumpCooldown: 0.5
   airMultiplier: 0.4
-  crouchSpeed: 2.5
-  crouchYScale: 0.5
-  startYScale: 0
   jumpKey: 32
   sprintKey: 304
   crouchKey: 306
@@ -2068,7 +2098,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5311689624216043708}
-  - {fileID: 7158931532670437075}
   m_Father: {fileID: 8771252474096167117}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6552417740981389593
