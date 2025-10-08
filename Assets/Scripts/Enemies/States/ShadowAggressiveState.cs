@@ -63,7 +63,7 @@ public class ShadowAggressiveState : ShadowFSMState
             return;
         }
 
-        if (!isHandlingEvent && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 5f)
+        if (!isHandlingEvent && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance + 2.5f)
         {
             NavMeshAreaManager.Instance.ForcePathRecalculation(agent, currentTarget.position);
         }

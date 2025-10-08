@@ -6,24 +6,21 @@ public class PlayerFear : MonoBehaviour
     public static PlayerFear Instance;
 
     [Header("Monsters")]
-    [SerializeField] private List<Transform> monsters = new List<Transform>();
+    public List<Transform> monsters = new List<Transform>();
 
-    [Header("Detection Settings")]
-    [SerializeField] private float detectionRadius = 30f;        
-    private Camera mainCamera;
+    [Header("Heartbeat Settings")]
+    public float maxHeartbeatDistance = 25f;  
+    public float minHeartbeatDistance = 5f;
+    public float updateInterval = 0.1f;
 
-    [Header("Heartbeat Intensity Levels")]
-    [SerializeField] private float calmVolume = 0.25f;
-    [SerializeField] private float calmPitch = 0.8f;
-
-    [SerializeField] private float nearVolume = 0.6f;
-    [SerializeField] private float nearPitch = 1.4f;
-
-    [SerializeField] private float seenVolume = 1.0f;
-    [SerializeField] private float seenPitch = 2.0f;
+    [Header("Audio Settings")]
+    public float maxVolume = 1f;             
+    public float minVolume = 0.2f;           
+    public float maxPitch = 2f;               
+    public float minPitch = 0.8f;             
 
     private float lastUpdateTime;
-    private float updateInterval = 0.1f;
+    private float currentThreatDistance;
 
     private void Awake()
     {
@@ -31,6 +28,8 @@ public class PlayerFear : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+
+        currentThreatDistance = maxHeartbeatDistance;
 
         if (monsters.Count == 0)
         {
@@ -40,11 +39,6 @@ public class PlayerFear : MonoBehaviour
                 monsters.Add(go.transform);
             }
         }
-
-        if (mainCamera == null)
-            mainCamera = Camera.main;
-
-        SoundManager.StartHeartbeat();
     }
 
     private void Update()
@@ -58,8 +52,7 @@ public class PlayerFear : MonoBehaviour
 
     private void EvaluateThreatLevel()
     {
-        bool isMonsterOnScreen = false;
-        bool isMonsterNear = false;
+        currentThreatDistance = maxHeartbeatDistance;
 
         Vector3 playerPos = transform.position;
 
@@ -67,52 +60,22 @@ public class PlayerFear : MonoBehaviour
         {
             if (monster == null) continue;
 
-            Vector3 monsterPos = monster.position;
-            float directDistance = Vector3.Distance(playerPos, monsterPos);
-
-            if (directDistance <= detectionRadius)
+            float directDistance = Vector3.Distance(playerPos, monster.position);
+            if (directDistance < currentThreatDistance)
             {
-                isMonsterNear = true;
-
-                if (IsMonsterOnScreen(monsterPos))
-                {
-                    isMonsterOnScreen = true;
-                    break; 
-                }
+                currentThreatDistance = directDistance;
             }
         }
 
-        if (isMonsterOnScreen)
-        {
-            SoundManager.UpdateHeartbeat(0f, minDistance: 0f, maxDistance: 1f,
-                minVolume: seenVolume, maxVolume: seenVolume,
-                minPitch: seenPitch, maxPitch: seenPitch);
-        }
-        else if (isMonsterNear)
-        {
-            SoundManager.UpdateHeartbeat(detectionRadius * 0.5f, minDistance: 0f, maxDistance: detectionRadius,
-                minVolume: nearVolume, maxVolume: nearVolume,
-                minPitch: nearPitch, maxPitch: nearPitch);
-        }
-        else
-        {
-            SoundManager.UpdateHeartbeat(detectionRadius, minDistance: 0f, maxDistance: detectionRadius,
-                minVolume: calmVolume, maxVolume: calmVolume,
-                minPitch: calmPitch, maxPitch: calmPitch);
-        }
-    }
-
-    private bool IsMonsterOnScreen(Vector3 worldPosition)
-    {
-        if (mainCamera == null) return false;
-
-        Vector3 viewportPoint = mainCamera.WorldToViewportPoint(worldPosition);
-
-        bool isInFront = viewportPoint.z > 0; 
-        bool isInX = viewportPoint.x >= 0 && viewportPoint.x <= 1;
-        bool isInY = viewportPoint.y >= 0 && viewportPoint.y <= 1;
-
-        return isInFront && isInX && isInY;
+        SoundManager.UpdateHeartbeat(
+            currentThreatDistance,
+            minDistance: minHeartbeatDistance,
+            maxDistance: maxHeartbeatDistance,
+            minVolume: minVolume,
+            maxVolume: maxVolume,
+            minPitch: minPitch,
+            maxPitch: maxPitch
+        );
     }
 
     private void OnDestroy()

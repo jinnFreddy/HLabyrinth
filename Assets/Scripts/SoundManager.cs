@@ -59,11 +59,6 @@ public class SoundManager : MonoBehaviour
             disableSource = gameObject.AddComponent<AudioSource>();
         }
 
-        for (int i = 0; i < sources.Length; i++)
-        {
-            Debug.Log($"Source {i}: {sources[i].name ?? "Unnamed"} | Clip: {sources[i].clip?.name}");
-        }
-
         heartbeatSource.playOnAwake = false;
         heartbeatSource.loop = true;
         heartbeatSource.clip = null;

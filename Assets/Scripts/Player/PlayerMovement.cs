@@ -396,7 +396,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
-        if (flatVelocity.magnitude < 0.5f) return; // Not actually moving
+        if (flatVelocity.magnitude < 0.5f) return; 
 
         footstepTimer += Time.deltaTime;
 

@@ -84,10 +84,5 @@ public class BrazierManager : MonoBehaviour
             }
             wallTransform.position = targetPos;
         }
-
-        // Final cage locked state
-        Debug.Log("Final Cage Opened");
-
-        // Optional: play sound, lock door, show UI feedback
     }
 }
