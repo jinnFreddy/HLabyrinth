@@ -19,4 +19,9 @@ public class GameOver : MonoBehaviour, IInteractable
             animator.Play("FadeOut");
         }
     }
+
+    public void End()
+    {
+        Application.Quit();
+    }
 }

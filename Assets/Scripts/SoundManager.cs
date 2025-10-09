@@ -42,42 +42,46 @@ public class SoundManager : MonoBehaviour
     {
         instance = this;
 
-        var sources = GetComponents<AudioSource>();
-        Debug.Log($"Found {sources.Length} AudioSources");
-
-        
+        var sources = GetComponents<AudioSource>();        
         sfxSource = GetComponent<AudioSource>();
 
-        RebuildHeartbeatSource();
-
-        if (sources.Length >= 3)
+        if (sources.Length < 2)
         {
-            disableSource = sources[2];
+            heartbeatSource = gameObject.AddComponent<AudioSource>();
         }
         else
         {
+            heartbeatSource = sources[1];
+        }
+
+        if (sources.Length < 3)
+        {
             disableSource = gameObject.AddComponent<AudioSource>();
         }
-
-        heartbeatSource.playOnAwake = false;
-        heartbeatSource.loop = true;
-        heartbeatSource.clip = null;
-    }
-
-    private void RebuildHeartbeatSource()
-    {
-        if (heartbeatSource != null)
+        else
         {
-            DestroyImmediate(heartbeatSource);
+            disableSource = sources[2];
         }
 
-        heartbeatSource = gameObject.AddComponent<AudioSource>();
         heartbeatSource.playOnAwake = false;
         heartbeatSource.loop = true;
         heartbeatSource.clip = null;
-        heartbeatSource.volume = 1f;
-        heartbeatSource.pitch = 1f;
     }
+
+    //private void RebuildHeartbeatSource()
+    //{
+    //    if (heartbeatSource != null)
+    //    {
+    //        DestroyImmediate(heartbeatSource);
+    //    }
+
+    //    heartbeatSource = gameObject.AddComponent<AudioSource>();
+    //    heartbeatSource.playOnAwake = false;
+    //    heartbeatSource.loop = true;
+    //    heartbeatSource.clip = null;
+    //    heartbeatSource.volume = 1f;
+    //    heartbeatSource.pitch = 1f;
+    //}
 
     public static void PlaySound(SoundType sound, float volume = .7f)
     {

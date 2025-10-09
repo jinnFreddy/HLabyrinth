@@ -56,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float walkStepInterval = 0.6f;
     [SerializeField] private float runStepInterval = 0.4f;
     [SerializeField] private bool hasGroundedBefore = false;
+    private bool wasGroundedLastFrame = false;
+    [SerializeField] private float landStepThreshold = 0.1f;
 
     [Header("Hurt Condition")]
     [SerializeField] public bool isSlowed;
@@ -68,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
     private float elapsed = 0f;
     private float recoveryDelayTimer = 0f;
     private Coroutine screenDamageTask;
+    private float lastAirborneTime = 0f;
 
     float horizontalInput;
     float verticalInput;
@@ -97,12 +100,23 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!wasGroundedLastFrame && grounded)
+        {
+
+            if (Time.time - lastAirborneTime > landStepThreshold)
+            {
+                PlayLandingSound();
+            }
+        }
+        wasGroundedLastFrame = grounded;
+        lastAirborneTime = grounded ? lastAirborneTime : Time.time;
+
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, isGround);
         MyInput();
         SpeedControl();
-        StateHandler();
+        StateHandler();        
 
-        if (grounded && (state != MovementState.sprinting))
+        if (grounded && (state != MovementState.sprinting) && !isSlowed)
         {
             recoveryDelayTimer += Time.deltaTime;
             if (recoveryDelayTimer > staminaRecoveryDelay)
@@ -196,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
         // Sprinting
         bool wantsToSprint = Input.GetKey(sprintKey);
         bool hasEnoughStamina = stamina > minStaminaForSprint;
-        bool canSprint = wantsToSprint && !isRecoveringFromSprint && hasEnoughStamina;
+        bool canSprint = wantsToSprint && !isRecoveringFromSprint && hasEnoughStamina && !isSlowed;
         if (canSprint)
         {
             state = MovementState.sprinting;
@@ -219,8 +233,10 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = walkSpeed;
             UpdateFootsteps(walkStepInterval);
 
-            if (isRecoveringFromSprint)
+            if (isRecoveringFromSprint && !isSlowed)
             {
+                stamina = Mathf.Min(stamina + staminaRegenRate * Time.deltaTime, staminaMaximum);
+
                 if (stamina >= staminaMaximum * 0.8f)
                 {
                     isRecoveringFromSprint = false;
@@ -338,6 +354,7 @@ public class PlayerMovement : MonoBehaviour
 
     private IEnumerator screenDamage(float intensity)
     {
+        elapsed = 0f;
         var targetRadius = Remap(intensity, 0, 1, 0.4f, -0.15f);
         var startRadius = 1f;
 
@@ -388,6 +405,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void UpdateFootsteps(float stepInterval)
     {
+        if (!grounded) return;
+
         if (!hasGroundedBefore)
         {
             hasGroundedBefore = true;
@@ -416,5 +435,11 @@ public class PlayerMovement : MonoBehaviour
             }
             footstepTimer = 0f;
         }
+    }
+
+    private void PlayLandingSound()
+    {
+        SoundManager.PlaySound(SoundType.WALK);
+        footstepTimer = walkStepInterval * 0.5f;
     }
 }

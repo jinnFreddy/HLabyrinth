@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[ExecuteInEditMode]
 [RequireComponent (typeof(LineRenderer))]
 public class LaserScript : MonoBehaviour
 {

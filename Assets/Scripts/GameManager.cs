@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour
         playerMovement.enabled = false;
         SoundManager.StopHeartbeat();
         SoundManager.StopParanoiaSounds();
+        SoundManager.BlockNonDeathSounds();
 
         if (!firstPlaythrough)
         {
@@ -264,7 +265,6 @@ public class GameManager : MonoBehaviour
         if (isDead) return;
         isDead = true;
 
-        SoundManager.BlockNonDeathSounds();
         SoundManager.PlaySoundWithPitch(SoundType.DEATH, 1f);
         
         deathScreenPanel.SetActive(true);
