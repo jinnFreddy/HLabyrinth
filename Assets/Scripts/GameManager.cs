@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -29,6 +30,10 @@ public class GOState
 
         gameObject.transform.SetPositionAndRotation(originalPosition, originalRotation);
         gameObject.transform.localScale = originalScale;
+        if (gameObject.GetComponent<ShadowPathControllerNM>() != null)
+        {
+            gameObject.GetComponent<ShadowPathControllerNM>().caged = false;
+        }
     }
 }
 public class GameManager : MonoBehaviour
@@ -47,6 +52,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Monsters")]
     [SerializeField] private List<GameObject> allMonsters = new List<GameObject>();
+
+    [Header("Cages")]
+    [SerializeField] private List<GameObject> allCageBars = new List<GameObject>();
 
     [Header("Settings")]
     [SerializeField] private bool enableOnStart = true;
@@ -111,6 +119,7 @@ public class GameManager : MonoBehaviour
         CollectUniqueObjects(trapSetB, uniqueObjects);
         CollectUniqueObjects(trapSetC, uniqueObjects);
         CollectUniqueObjects(allMonsters, uniqueObjects);
+        CollectUniqueObjects(allCageBars, uniqueObjects);
 
         foreach (GameObject obj in uniqueObjects)
         {
@@ -166,6 +175,7 @@ public class GameManager : MonoBehaviour
 
         EnableObjects(activeTrapSet);
         EnableObjects(allMonsters);
+        EnableObjects(allCageBars);
 
         SoundManager.Unmute();
         firstPlaythrough = false;
@@ -246,6 +256,11 @@ public class GameManager : MonoBehaviour
             if (obj != null)
             {
                 obj.SetActive(true);
+                if (obj.GetComponent<ShadowPathControllerNM>() != null)
+                {
+                    var monster = obj.GetComponent<NavMeshAgent>();
+                    NavMeshAreaManager.Instance.SetAvoidanceMask(monster);
+                }
             }
         }
     }

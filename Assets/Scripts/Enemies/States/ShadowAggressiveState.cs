@@ -3,9 +3,9 @@ using UnityEngine.AI;
 
 public class ShadowAggressiveState : ShadowFSMState
 {
-    private readonly float moveSpeed = 6f;
+    private readonly float moveSpeed = 5f;
     private readonly int radius = 20;
-    private readonly float triggerDistance = 2.0f;
+    private readonly float triggerDistance = 1.0f;
     private Transform currentTarget;
     private NavMeshAgent agent;
     private bool isHandlingEvent = false;
@@ -44,9 +44,22 @@ public class ShadowAggressiveState : ShadowFSMState
     public override void Update()
     {
         base.Update();
+
+        if (_shadow.pathController.caged)
+        {
+            _shadow.shadowFSM.SetCurrentState(ShadowFSMStateType.SHY);
+        }
+
+        if (isHandlingEvent)
+        {
+            return;
+        }
+
         GameObject player = _shadow.playerDetector.GetPlayerWithinRadius(radius);
         if (player == null)
         {
+            _shadow.pathController.OnTargetReachedEvent -= SafeOnTargetReached;
+            isHandlingEvent = true;
             _shadow.shadowFSM.SetCurrentState(ShadowFSMStateType.SHY);
             return;
         }

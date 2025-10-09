@@ -24,6 +24,16 @@ public class ShadowShyState: ShadowFSMState
     public override void Update()
     {
         base.Update();
+        if (_shadow.pathController.caged)
+        {
+            _shadow.pathController.OnTargetReachedEvent -= OnTargetReached;
+            return;
+        }
+        else
+        {
+            _shadow.shadowFSM.SetCurrentState(ShadowFSMStateType.PATROLLING);
+        }
+
         GameObject target = _shadow.playerDetector.GetPlayerWithinRadius(radius);
         if (target != null)
         {

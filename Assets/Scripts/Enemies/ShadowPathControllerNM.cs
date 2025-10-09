@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,7 @@ public class ShadowPathControllerNM : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject closeTP;
+    public bool caged = false;
     public Action OnTargetReachedEvent;
 
     // Update is called once per frame
@@ -121,5 +123,23 @@ public class ShadowPathControllerNM : MonoBehaviour
     public void GetTPposition()
     {
         GameManager.Instance.teleporter = closeTP;
+    }
+    public void Caged()
+    {
+        caged = true;
+        if (agent != null)
+        {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+        }
+    }
+
+    public void Uncage()
+    {
+        caged = false;
+        if (agent != null)
+        {
+            agent.isStopped = false;
+        }
     }
 }

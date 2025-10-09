@@ -17,6 +17,7 @@ public class CageController : MonoBehaviour
     [SerializeField] private LayerMask shadowLayerMask;
     [SerializeField] private LayerMask playerLayerMask;
 
+    private Vector3[] initialWallPositions;
     private bool hasShadowInside = false;
     private bool playerIsInside = false;
     private bool cageClosed = false;
@@ -26,6 +27,11 @@ public class CageController : MonoBehaviour
     void Start()
     {
         InvokeRepeating(nameof(CheckCageStatus), 0f, checkInterval);
+    }
+
+    private void Update()
+    {
+        CheckCageStatus();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -70,15 +76,27 @@ public class CageController : MonoBehaviour
 
     private void CheckCageStatus()
     {
-        if (cageClosed || isProcessingTrap) return;
+        if (isProcessingTrap) return;
 
         CheckForShadows();
 
-        if (!playerIsInside && hasShadowInside)
+        if (!cageClosed)
         {
-            Debug.Log("Closing cage – player escaped, shadow trapped!");
-            StartCoroutine(TriggerTrapSequence());
+            if (!playerIsInside && hasShadowInside)
+            {
+                Debug.Log("Closing cage – player escaped, shadow trapped!");
+                StartCoroutine(TriggerTrapSequence());
+            }
         }
+        else
+        {
+            if (!hasShadowInside)
+            {
+                brazier.TurnOff();
+                StartCoroutine(OpenCage());
+            }
+        }
+
     }
 
     private void CheckForShadows()
@@ -105,6 +123,7 @@ public class CageController : MonoBehaviour
         yield return null;
 
         CheckForShadows();
+        Collider[] nearby = Physics.OverlapBox(centerPoint.position, detectionBox * 0.5f, Quaternion.identity, shadowLayerMask);
         if (!hasShadowInside || playerIsInside)
         {
             Debug.LogWarning("[Cage] Trap canceled - shadow no longer inside or player re-entered");
@@ -114,10 +133,56 @@ public class CageController : MonoBehaviour
 
         BrazierManager.Instance.OnShadowTrapped();
         yield return StartCoroutine(CloseCage());
-
+        nearby[0].GetComponent<ShadowPathControllerNM>().caged = true;
         cageClosed = true;
         isProcessingTrap = false;
         Debug.Log("Shadow Trapped!");
+    }
+
+    private IEnumerator OpenCage()
+    {
+        isProcessingTrap = true;
+
+        foreach (Transform wall in wallTransform)
+        {
+            if (wall != null)
+            {
+                Vector3 openPosition = GetInitialWallPosition(wall);
+                Vector3 startPosition = wall.position;
+
+                float elapsedTime = 0f;
+                while (elapsedTime < wallCloseDuration)
+                {
+                    float progress = elapsedTime / wallCloseDuration;
+                    wall.position = Vector3.Lerp(startPosition, openPosition, progress);
+
+                    elapsedTime += Time.deltaTime;
+                    yield return null; 
+                }
+
+                wall.position = openPosition;
+            }
+        }
+
+        if (brazier != null)
+        {
+            brazier.TurnOff(); 
+        }
+
+        cageClosed = false;
+        isProcessingTrap = false;
+    }
+
+    private Vector3 GetInitialWallPosition(Transform wallTransform)
+    {
+        for (int i = 0; i < this.wallTransform.Length; i++)
+        {
+            if (this.wallTransform[i] == wallTransform)
+            {
+                return initialWallPositions[i];
+            }
+        }
+        return wallTransform.position;
     }
 
     private IEnumerator CloseCage()

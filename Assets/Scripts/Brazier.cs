@@ -14,4 +14,15 @@ public class Brazier : MonoBehaviour
             }
         }
     }
+
+    public void TurnOff()
+    {
+        foreach (GameObject go in flames)
+        {
+            if (flames != null)
+            {
+                go.SetActive(false);
+            }
+        }
+    }
 }

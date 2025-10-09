@@ -10,6 +10,7 @@ public class NavMeshAreaManager : MonoBehaviour
     private int allAreasMask;
     private int chaseMask; 
     private int avoidanceMask;
+    private int cagedMask;
     private int aggressiveStateCount = 0;
 
     void Awake()
@@ -25,6 +26,7 @@ public class NavMeshAreaManager : MonoBehaviour
                 allAreasMask = -1;
                 chaseMask = allAreasMask;
                 avoidanceMask = allAreasMask & ~(1 << forbiddenAreaIndex);
+                cagedMask = 0;
             }
         }
         else
@@ -39,10 +41,27 @@ public class NavMeshAreaManager : MonoBehaviour
 
         aggressiveStateCount++;
 
-        if (aggressiveStateCount == 1)
-        {
-            agent.areaMask = chaseMask;
+        agent.areaMask = chaseMask;
+        ForcePathRecalculation(agent, destination);
+    }
 
+    public void ExitAggressiveState(NavMeshAgent agent, Vector3 destination)
+    {
+        if (forbiddenAreaIndex == -1 || agent == null) return;
+
+        aggressiveStateCount = Mathf.Max(0, aggressiveStateCount - 1);
+        ShadowPathControllerNM shadowController = agent.GetComponent<ShadowPathControllerNM>();
+
+        if (aggressiveStateCount == 0)
+        {
+            if (shadowController != null && shadowController.caged)
+            {
+                agent.areaMask = cagedMask;
+            }
+            else
+            {
+                agent.areaMask = avoidanceMask;
+            }
             ForcePathRecalculation(agent, destination);
         }
         else
@@ -52,23 +71,9 @@ public class NavMeshAreaManager : MonoBehaviour
         }
     }
 
-    public void ExitAggressiveState(NavMeshAgent agent, Vector3 destination)
+    public void SetAvoidanceMask(NavMeshAgent agent)
     {
-        if (forbiddenAreaIndex == -1 || agent == null) return;
-
-        aggressiveStateCount = Mathf.Max(0, aggressiveStateCount - 1);
-
-        if (aggressiveStateCount == 0)
-        {
-            agent.areaMask = avoidanceMask;
-
-            ForcePathRecalculation(agent, destination);
-        }
-        else
-        {
-            agent.areaMask = chaseMask;
-            ForcePathRecalculation(agent, destination);
-        }
+        agent.areaMask = avoidanceMask;
     }
 
     public void ForcePathRecalculation(NavMeshAgent agent, Vector3 destination)
