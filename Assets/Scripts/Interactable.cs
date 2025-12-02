@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class Interactable : MonoBehaviour
     [SerializeField] private int _numFound;
 
     //[SerializeField] GameObject _avisoBackground;
-    //public GameObject aviso;
-    //public TMP_Text aviso_text;
+    [SerializeField] private GameObject aviso;
+    [SerializeField] private Text aviso_text;
 
     //private Animator anim;
 
@@ -26,21 +27,20 @@ public class Interactable : MonoBehaviour
         CrosshairManager.Instance?.SetNormalCrosshair();
         _numFound = Physics.OverlapBoxNonAlloc(_interactionPoint.position, _interactionBoxSize / 2, _colliders, Quaternion.identity, _interactableMask);
         
-        //aviso.SetActive(false);
-        //_avisoBackground.SetActive(false);
+        aviso.SetActive(false);
 
         if (_numFound > 0)
         {
             CrosshairManager.Instance?.SetInteractingCrosshair();
-            //aviso.SetActive(true);
-            //aviso_text.text = _colliders[0].name;
+            aviso.SetActive(true);
+            aviso_text.text = _colliders[0].name;
             var interactable = _colliders[0].GetComponent<IInteractable>();
             //_avisoBackground.SetActive(true);
             if (interactable != null && Input.GetKeyDown(KeyCode.E))
             {
                 interactable.Interact(this);
                 CrosshairManager.Instance?.SetNormalCrosshair();
-                //aviso.SetActive(false);
+                aviso.SetActive(false);
 
                 //anim.SetBool("IsInteracting", true);
                 //_avisoBackground.SetActive(false);

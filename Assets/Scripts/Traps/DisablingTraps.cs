@@ -9,6 +9,8 @@ public class DisablingTraps : MonoBehaviour
     [SerializeField] private float _disableTime = 5f;
     [SerializeField] private LayerMask _trapMask;
     [SerializeField] private Loadout _loadout;
+    [SerializeField] private GameObject aviso;
+    [SerializeField] private Text aviso_text;
 
     private WireTrap _currentTrap = null;
     private float _progress = 0f;
@@ -30,16 +32,19 @@ public class DisablingTraps : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, _maxDistance, _trapMask))
         {
-
             CrosshairManager.Instance?.SetInteractingCrosshair();
             WireTrap trap = hit.collider.GetComponentInChildren<WireTrap>();
+            aviso.SetActive(true);
+
             if (trap != null && !trap._isDisabled)
             {
+                aviso_text.text = trap.name;
                 _currentTrap = trap;
                 return;
             }
         }
 
+        aviso.SetActive(false);
         _currentTrap = null;
         _progress = 0f;
         if (_progressBar) _progressBar.fillAmount = 0f;
@@ -73,6 +78,7 @@ public class DisablingTraps : MonoBehaviour
             hasStartedDisabling = true;
         }
 
+        aviso_text.text = "Disabling";
         _progress += Time.deltaTime / _disableTime;
         if (_progress >= 1f)
         {

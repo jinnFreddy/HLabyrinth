@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3301910}
   - component: {fileID: 2301910}
   - component: {fileID: 6588870}
-  - component: {fileID: 7080325491887684787}
   m_Layer: 9
   m_Name: Rostrum_Preset_01
   m_TagString: Untagged
@@ -113,20 +112,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6144104, y: 1.0524973, z: 0.6144093}
   m_Center: {x: 0.0000009536743, y: 0.52624863, z: 0.000000059604645}
---- !u!114 &7080325491887684787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a8dedbea6c903b4285c282106bc315e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  _spawnPoint: {fileID: 0}
 --- !u!1 &4254655793600307066
 GameObject:
   m_ObjectHideFlags: 0
