@@ -5,7 +5,7 @@ public class ShadowAggressiveState : ShadowFSMState
 {
     private readonly float moveSpeed = 5f;
     private readonly int radius = 20;
-    private readonly float triggerDistance = 1.0f;
+    private readonly float triggerDistance = 1.5f;
     private Transform currentTarget;
     private NavMeshAgent agent;
     private bool isHandlingEvent = false;

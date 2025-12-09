@@ -9,6 +9,7 @@ public class LaserScript : MonoBehaviour
     [SerializeField] private LayerMask _reflectiveSurfaces;
     [SerializeField] private LayerMask _lightSource;
     [SerializeField] private LayerMask _crystalCluster;
+    [SerializeField] private LayerMask _mirrorBackMask;
     [SerializeField] private float _defaultLength;
     [SerializeField] private int _numOfReflections;
     [SerializeField] private WinConditionGlow _crystalVisuals;
@@ -41,13 +42,19 @@ public class LaserScript : MonoBehaviour
         int validPoints = 0;
         positions[validPoints++] = _ray.origin;
 
-        int combinedMask = _reflectiveSurfaces.value | _crystalCluster.value;
+        int combinedMask = _reflectiveSurfaces.value | _crystalCluster.value | _mirrorBackMask.value;
         bool hitCrystal = false;
 
         for (int i = 0; i < _numOfReflections; i++)
         {
             if (Physics.Raycast(_ray.origin, _ray.direction, out _hit, remainingLength, combinedMask, QueryTriggerInteraction.Collide))
             {
+                if ((_mirrorBackMask.value & (1 << _hit.collider.gameObject.layer)) != 0)
+                {
+                    positions[validPoints++] = _hit.point;
+                    remainingLength = 0;
+                    break; 
+                }
                 positions[validPoints++] = _hit.point;
 
                 bool isLayerMatch = (_crystalCluster.value & (1 << _hit.collider.gameObject.layer)) != 0;
@@ -80,6 +87,7 @@ public class LaserScript : MonoBehaviour
 
                 _ray = new Ray(newOrigin, reflectDir);
             }
+
             else
             {
                 positions[validPoints++] = _ray.origin + _ray.direction * remainingLength;

@@ -9,6 +9,7 @@ TagManager:
   - CrystalCluster
   - Shadow
   - Camera
+  - pickup
   layers:
   - Default
   - TransparentFX
@@ -27,7 +28,7 @@ TagManager:
   - CrystalCluster
   - PP
   - Items
-  - 
+  - NonReflective
   - 
   - 
   - 

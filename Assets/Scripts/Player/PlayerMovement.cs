@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sprintStaminaCost;
     [SerializeField] private float jumpStaminaCost;
     [SerializeField] private bool isRecoveringFromSprint = false;
-    [SerializeField] private float minStaminaForSprint = 25f;
+    [SerializeField] private float minStaminaForSprint;
     [SerializeField] private float staminaRecoveryDelay = 0.3f;
 
     [Header("Footsteps")]
@@ -91,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        rb.useGravity = true;
         readyToJump = true;
         //startYScale = transform.localScale.y;
         stamina = staminaMaximum;
@@ -112,9 +113,7 @@ public class PlayerMovement : MonoBehaviour
         lastAirborneTime = grounded ? lastAirborneTime : Time.time;
 
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, isGround);
-        MyInput();
-        SpeedControl();
-        StateHandler();        
+                
 
         if (grounded && (state != MovementState.sprinting) && !isSlowed)
         {
@@ -159,7 +158,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        MyInput();
         MovePlayer();
+        SpeedControl();
+        StateHandler();
+        if (grounded)
+        {
+            rb.AddForce(-Physics.gravity * rb.mass, ForceMode.Acceleration);
+        }
     }
 
     private void MyInput()
@@ -273,8 +279,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         } 
-
-        rb.useGravity = !OnSlope();
     }
 
     private void SpeedControl()
